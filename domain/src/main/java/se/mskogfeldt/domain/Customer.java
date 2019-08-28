@@ -1,4 +1,4 @@
-package se.mskogfeldt;
+package se.mskogfeldt.domain;
 
 public class Customer {
 
