@@ -8,12 +8,12 @@ public class Airplane {
     private String name;
     private String id;
     private List<Integer> economiClassSeats;
-    private List<Integer> buisnissClassSeats;
+    private List<Integer> businessClassSeats;
 
     public Airplane(Builder builder) {
         this.id = Objects.requireNonNull(builder.id);
         this.name = Objects.requireNonNull(builder.name);
-        this.buisnissClassSeats = Objects.requireNonNull(builder.buisnissClassSeats);
+        this.businessClassSeats = Objects.requireNonNull(builder.businessClassSeats);
         this.economiClassSeats = Objects.requireNonNull(builder.economiClassSeats);
     }
 
@@ -26,6 +26,14 @@ public class Airplane {
         return name;
     }
 
+    public List<Integer> getEconomiClassSeats() {
+        return economiClassSeats;
+    }
+
+    public List<Integer> getBuisnissClassSeats() {
+        return businessClassSeats;
+    }
+
     public static Builder builder() { return new Builder(); }
 
     public static class Builder{
@@ -33,7 +41,7 @@ public class Airplane {
         private String id;
         private String name;
         private List<Integer> economiClassSeats;
-        private List<Integer> buisnissClassSeats;
+        private List<Integer> businessClassSeats;
 
         public Builder withName(String name){
             this.name = name;
@@ -51,7 +59,7 @@ public class Airplane {
         }
 
         public Builder withBuisnissClassSeats(List<Integer> buisnissClassSeats) {
-            this.buisnissClassSeats = buisnissClassSeats;
+            this.businessClassSeats = buisnissClassSeats;
             return this;
         }
 
@@ -61,9 +69,6 @@ public class Airplane {
 
 
     }
-
-
-
 
 }
 

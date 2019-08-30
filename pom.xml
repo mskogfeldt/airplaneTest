@@ -20,8 +20,6 @@
 
         <module>service</module>
 
-        <module>entity</module>
-
         <module>dap-impl</module>
 
         <module>service-impl</module>
