@@ -11,7 +11,7 @@ public class BusinessClassSeat {
 
     }
 
-    public int getSeatNumber() {return seatNumber}
+    public int getSeatNumber() {return seatNumber;}
 
     public static Builder builder() { return new Builder(); }
 
@@ -25,7 +25,7 @@ public class BusinessClassSeat {
             return this;
         }
 
-        public BusinessClassSeat build() { return new BusinessClassSeat(this)}
+        public BusinessClassSeat build() { return new BusinessClassSeat(this);}
     }
 
 }

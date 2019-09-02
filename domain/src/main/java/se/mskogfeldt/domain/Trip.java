@@ -5,19 +5,19 @@ import java.util.Objects;
 
 public class Trip {
     private Airplane plane;
-    private List<Integer> avaibleBusinessClassSeats;
-    private List<Integer> bookedBusinessClassSeats;
-    private List<Integer> avalibleEconomiClassSeats;
-    private List<Integer> bookedEconomiClassSeats;
+    private List<BusinessClassSeat> avaibleBusinessClassSeats;
+    private List<BusinessClassSeat> bookedBusinessClassSeats;
+    private List<EconomyClassSeat> avalibleEconomyClassSeats;
+    private List<EconomyClassSeat> bookedEconomyClassSeats;
     private int costForBuisnessClassSeat;
     private int costForEkonomyClassSeat;
 
     // plane.getBusnessClassSeats();
     public Trip(Builder builder) {
         this.avaibleBusinessClassSeats = Objects.requireNonNull(builder.avalibleBusinessClassSeats);
-        this.bookedBusinessClassSeats = Objects.requireNonNull(builder.bookedBusinessClassSeats);
-        this.avalibleEconomiClassSeats = Objects.requireNonNull(builder.avalibleEconomiClassSeats);
-        this.bookedEconomiClassSeats = Objects.requireNonNull(builder.bookedEconomiClassSeats);
+        this.bookedBusinessClassSeats = builder.bookedBusinessClassSeats;
+        this.avalibleEconomyClassSeats = Objects.requireNonNull(builder.avalibleEconomyClassSeats);
+        this.bookedEconomyClassSeats = builder.bookedEconomyClassSeats;
         this.costForBuisnessClassSeat = Objects.requireNonNull(builder.costForBuisnessClassSeat);
         this.costForEkonomyClassSeat = Objects.requireNonNull(builder.costForEkonomyClassSeat);
 
@@ -27,20 +27,20 @@ public class Trip {
         return plane;
     }
 
-    public List<Integer> getAvalibleBusinessClassSeats() {
+    public List<BusinessClassSeat> getAvalibleBusinessClassSeats() {
         return avaibleBusinessClassSeats;
     }
 
-    public List<Integer> getBookedBusinessClassSeats() {
+    public List<BusinessClassSeat> getBookedBusinessClassSeats() {
         return bookedBusinessClassSeats;
     }
 
-    public List<Integer> getAvalibleEconomiClassSeats() {
-        return avalibleEconomiClassSeats;
+    public List<EconomyClassSeat> getAvalibleEconomyClassSeats() {
+        return avalibleEconomyClassSeats;
     }
 
-    public List<Integer> getBookedEconomiClassSeats() {
-        return bookedEconomiClassSeats;
+    public List<EconomyClassSeat> getBookedEconomyClassSeats() {
+        return bookedEconomyClassSeats;
     }
 
     public int getCostForBuisnessClassSeat() {
@@ -54,30 +54,30 @@ public class Trip {
     public static Builder builder() { return new Builder(); }
 
     public static class Builder {
-        private List<Integer> avalibleBusinessClassSeats;
-        private List<Integer> bookedBusinessClassSeats;
-        private List<Integer> avalibleEconomiClassSeats;
-        private List<Integer> bookedEconomiClassSeats;
+        private List<BusinessClassSeat> avalibleBusinessClassSeats;
+        private List<BusinessClassSeat> bookedBusinessClassSeats;
+        private List<EconomyClassSeat> avalibleEconomyClassSeats;
+        private List<EconomyClassSeat> bookedEconomyClassSeats;
         private int costForBuisnessClassSeat;
         private int costForEkonomyClassSeat;
 
-        public Builder withAvaibleBusinessClassSeats(List<Integer> avalibleBusinessClassSeats){
+        public Builder withAvaibleBusinessClassSeats(List<BusinessClassSeat> avalibleBusinessClassSeats){
             this.avalibleBusinessClassSeats = avalibleBusinessClassSeats;
             return this;
         }
 
-        public Builder withBookedBusinessClassSeats(List<Integer> bookedBusinessClassSeats){
+        public Builder withBookedBusinessClassSeats(List<BuisnessClassSeats> bookedBusinessClassSeats){
             this.avalibleBusinessClassSeats = avalibleBusinessClassSeats;
             return this;
         }
 
-        public Builder withAvalibleEconomiClassSeats(List<Integer> avalibleEconomiClassSeats){
-            this.avalibleEconomiClassSeats = avalibleEconomiClassSeats;
+        public Builder withAvalibleEconomiClassSeats(List<EconomyClassSeat> avalibleEconomyClassSeats){
+            this.avalibleEconomyClassSeats = avalibleEconomyClassSeats;
             return this;
         }
 
-        public Builder withBookedEconomiClassSeats(List<Integer> bookedEconomiClassSeats){
-            this.avalibleEconomiClassSeats = avalibleEconomiClassSeats;
+        public Builder withBookedEconomiClassSeats(List<EconomyClassSeat> bookedEconomyClassSeats){
+            this.avalibleEconomyClassSeats = avalibleEconomyClassSeats;
             return this;
         }
 

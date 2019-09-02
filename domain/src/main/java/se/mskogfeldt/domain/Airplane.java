@@ -7,14 +7,14 @@ public class Airplane {
 
     //private String name;
     private String id;
-    private List<EconomiClassSeat> economiClassSeats;
+    private List<EconomyClassSeat> economyClassSeats;
     private List<BusinessClassSeat> businessClassSeats;
 
     public Airplane(Builder builder) {
         this.id = Objects.requireNonNull(builder.id);
         //this.name = Objects.requireNonNull(builder.name);
         this.businessClassSeats = builder.businessClassSeats;
-        this.economiClassSeats = builder.economiClassSeats;
+        this.economyClassSeats = builder.economyClassSeats;
     }
 
 
@@ -28,12 +28,12 @@ public class Airplane {
 
     */
 
-    public List<BusinessClassSeat> getBuisnissClassSeats() {
+    public List<BusinessClassSeat> getBusinessClassSeats() {
         return businessClassSeats;
     }
 
-    public List<EconomiClassSeat> getEconomiClassSeats() {
-        return economiClassSeats;
+    public List<EconomyClassSeat> getEconomyClassSeats() {
+        return economyClassSeats;
     }
 
     public static Builder builder() { return new Builder(); }
@@ -42,7 +42,7 @@ public class Airplane {
 
         private String id;
         private String name;
-        private List<EconomiClassSeat> economiClassSeats;
+        private List<EconomyClassSeat> economyClassSeats;
         private List<BusinessClassSeat> businessClassSeats;
 
         public Builder withName(String name){
@@ -55,12 +55,12 @@ public class Airplane {
             return this;
         }
 
-        public Builder withEconomiClassSeats(List<EconomiClassSeat> economiClassSeats) {
-            this.economiClassSeats = economiClassSeats;
+        public Builder withEconomyClassSeats(List<EconomyClassSeat> economyClassSeats) {
+            this.economyClassSeats = economyClassSeats;
             return this;
         }
 
-        public Builder withBuisnissClassSeats(List<BusinessClassSeat> buisnissClassSeats) {
+        public Builder withBusinissClassSeats(List<BusinessClassSeat> buisnissClassSeats) {
             this.businessClassSeats = buisnissClassSeats;
             return this;
         }

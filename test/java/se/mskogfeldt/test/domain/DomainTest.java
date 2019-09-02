@@ -2,13 +2,11 @@ package se.mskogfeldt.test.domain;
 
 import org.junit.Assert;
 import org.junit.Test;
-import se.mskogfeldt.domain.Airplane;
-import se.mskogfeldt.domain.Customer;
-import se.mskogfeldt.domain.Trip;
+import se.mskogfeldt.domain.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Objects;
+import java.util.List;
 
 public class DomainTest {
 
@@ -18,41 +16,73 @@ public class DomainTest {
         Assert.assertNotNull(customer.getFirstName());
     }
 
+     @Test
+     public void testCreatingFood(){
+         Food food = Food.builder().withName("Apple").withCost(100).build();
+         Assert.assertNotNull(food.getName());
+     }
+
     @Test
     public void testCreatingAirplane() {
-        Airplane airplane = Airplane.builder().withId("12345")
-                .withBuisnissClassSeats(Arrays.asList(1,2,3,4,5)).withEconomiClassSeats(Arrays.asList(6,7,8,9,10)).build();
-        Assert.assertNotNull(airplane.getName());
+
+        List<BusinessClassSeat> businessClassSeats =new ArrayList<>();
+        List<EconomyClassSeat>  economyClassSeats = new ArrayList<>();
+        BusinessClassSeat businessClassSeat1 = BusinessClassSeat.builder()
+                .withSeatNumber(1).build();
+        EconomyClassSeat economyClassSeat1 = EconomyClassSeat.builder()
+                .withSeatNumber(1).build();
+        businessClassSeats.add(businessClassSeat1);
+        economyClassSeats.add(economyClassSeat1);
+
+        Airplane airplane =Airplane.builder().withId("12345")
+                .withBusinissClassSeats(businessClassSeats)
+                .withEconomyClassSeats(economyClassSeats).build();
+
+        Assert.assertNotNull(airplane.getId());
     }
+
+
 
     @Test
     public void testCreatingBuisinessClassSeat(){
-        BuisinessClassSeat buisinessClassSeat1 = BuisinessClassSeat.builder()
+        BusinessClassSeat buisinessClassSeat1 = BusinessClassSeat.builder()
                 .withSeatNumber(1).build();
         Assert.assertNotNull(buisinessClassSeat1.getSeatNumber());
     }
 
     @Test
     public void testCreatingEconomyClassSeat(){
-        EconomyClassSeat beconomyClassSeat1 = EconomyClassSeat.builder()
+        EconomyClassSeat economyClassSeat1 = EconomyClassSeat.builder()
                 .withSeatNumber(1).build();
-        Assert.assertNotNull(buisinessClassSeat1.getSeatNumber());
+        Assert.assertNotNull(economyClassSeat1.getSeatNumber());
     }
 
     @Test
     public void testCreatingTrip() {
-        Airplane airplane = Airplane.builder().withId("12345")
-                .withBuisnissClassSeats(Arrays.asList(1,2,3,4,5)).withEconomiClassSeats(Arrays.asList(6,7,8,9,10)).build();
-    //    Assert.assertNotNull(airplane.getName());
-        Trip trip = Trip.builder().withAvaibleBusinessClassSeats(airplane.getBuisnissClassSeats())
-                .withBookedBusinessClassSeats(new ArrayList<Integer>())
-                .withAvalibleEconomiClassSeats(airplane.getEconomiClassSeats())
-                .withBookedEconomiClassSeats(new ArrayList<Integer>())
+        List<BusinessClassSeat> businessClassSeats =new ArrayList<>();
+        List<EconomyClassSeat>  economyClassSeats = new ArrayList<>();
+        BusinessClassSeat businessClassSeat1 = BusinessClassSeat.builder()
+                .withSeatNumber(1).build();
+        EconomyClassSeat economyClassSeat1 = EconomyClassSeat.builder()
+                .withSeatNumber(1).build();
+        businessClassSeats.add(businessClassSeat1);
+        economyClassSeats.add(economyClassSeat1);
+
+        Airplane airplane =Airplane.builder().withId("12345")
+                .withBusinissClassSeats(businessClassSeats)
+                .withEconomyClassSeats(economyClassSeats).build();
+
+        Trip trip = Trip.builder().withAvaibleBusinessClassSeats(airplane.getBusinessClassSeats())
+                .withBookedBusinessClassSeats(new ArrayList<BuisnessClassSeats>())
+                .withAvalibleEconomiClassSeats(airplane.getEconomyClassSeats())
+                .withBookedEconomiClassSeats(new ArrayList<EconomyClassSeat>())
                 .withCostForEkonomyClassSeat(5000)
                 .withCostForBuisnessClassSeat(20000)
                 .build();
         Assert.assertNotNull(trip.getCostForEkonomyClassSeat());
     }
+
+
 
 }
 
