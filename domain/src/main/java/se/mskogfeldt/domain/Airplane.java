@@ -5,16 +5,16 @@ import java.util.Objects;
 
 public class Airplane {
 
-    private String name;
+    //private String name;
     private String id;
-    private List<Integer> economiClassSeats;
-    private List<Integer> businessClassSeats;
+    private List<EconomiClassSeat> economiClassSeats;
+    private List<BusinessClassSeat> businessClassSeats;
 
     public Airplane(Builder builder) {
         this.id = Objects.requireNonNull(builder.id);
-        this.name = Objects.requireNonNull(builder.name);
-        this.businessClassSeats = Objects.requireNonNull(builder.businessClassSeats);
-        this.economiClassSeats = Objects.requireNonNull(builder.economiClassSeats);
+        //this.name = Objects.requireNonNull(builder.name);
+        this.businessClassSeats = builder.businessClassSeats;
+        this.economiClassSeats = builder.economiClassSeats;
     }
 
 
@@ -22,16 +22,18 @@ public class Airplane {
         return id;
     }
 
-    public String getName() {
+   /* public String getName() {
         return name;
     }
 
-    public List<Integer> getEconomiClassSeats() {
-        return economiClassSeats;
+    */
+
+    public List<BusinessClassSeat> getBuisnissClassSeats() {
+        return businessClassSeats;
     }
 
-    public List<Integer> getBuisnissClassSeats() {
-        return businessClassSeats;
+    public List<EconomiClassSeat> getEconomiClassSeats() {
+        return economiClassSeats;
     }
 
     public static Builder builder() { return new Builder(); }
@@ -40,8 +42,8 @@ public class Airplane {
 
         private String id;
         private String name;
-        private List<Integer> economiClassSeats;
-        private List<Integer> businessClassSeats;
+        private List<EconomiClassSeat> economiClassSeats;
+        private List<BusinessClassSeat> businessClassSeats;
 
         public Builder withName(String name){
             this.name = name;
@@ -53,12 +55,12 @@ public class Airplane {
             return this;
         }
 
-        public Builder withEconomiClassSeats(List<Integer> economiClassSeats) {
+        public Builder withEconomiClassSeats(List<EconomiClassSeat> economiClassSeats) {
             this.economiClassSeats = economiClassSeats;
             return this;
         }
 
-        public Builder withBuisnissClassSeats(List<Integer> buisnissClassSeats) {
+        public Builder withBuisnissClassSeats(List<BusinessClassSeat> buisnissClassSeats) {
             this.businessClassSeats = buisnissClassSeats;
             return this;
         }

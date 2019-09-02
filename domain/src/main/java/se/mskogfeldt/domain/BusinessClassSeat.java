@@ -2,11 +2,11 @@ package se.mskogfeldt.domain;
 
 import java.util.Objects;
 
-public class EconomiClassSeat {
+public class BusinessClassSeat {
 
     private int seatNumber;
 
-    public EconomiClassSeat(Builder builder){
+    public BusinessClassSeat(BusinessClassSeat.Builder builder){
         this.seatNumber = Objects.requireNonNull(builder.seatNumber);
 
     }
@@ -15,16 +15,17 @@ public class EconomiClassSeat {
 
     public static Builder builder() { return new Builder(); }
 
+
     public static class Builder{
 
         private int seatNumber;
 
-        public Builder withSeatNumber(int seatNumber){
+        public BusinessClassSeat.Builder withSeatNumber(int seatNumber){
             this.seatNumber = seatNumber;
             return this;
         }
 
-        public EconomiClassSeat build() {return new EconomiClassSeat(this)}
+        public BusinessClassSeat build() { return new BusinessClassSeat(this)}
     }
 
 }

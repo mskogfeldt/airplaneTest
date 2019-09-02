@@ -20,14 +20,28 @@ public class DomainTest {
 
     @Test
     public void testCreatingAirplane() {
-        Airplane airplane = Airplane.builder().withName("falcon").withId("12345")
+        Airplane airplane = Airplane.builder().withId("12345")
                 .withBuisnissClassSeats(Arrays.asList(1,2,3,4,5)).withEconomiClassSeats(Arrays.asList(6,7,8,9,10)).build();
         Assert.assertNotNull(airplane.getName());
     }
 
     @Test
+    public void testCreatingBuisinessClassSeat(){
+        BuisinessClassSeat buisinessClassSeat1 = BuisinessClassSeat.builder()
+                .withSeatNumber(1).build();
+        Assert.assertNotNull(buisinessClassSeat1.getSeatNumber());
+    }
+
+    @Test
+    public void testCreatingEconomyClassSeat(){
+        EconomyClassSeat beconomyClassSeat1 = EconomyClassSeat.builder()
+                .withSeatNumber(1).build();
+        Assert.assertNotNull(buisinessClassSeat1.getSeatNumber());
+    }
+
+    @Test
     public void testCreatingTrip() {
-        Airplane airplane = Airplane.builder().withName("falcon").withId("12345")
+        Airplane airplane = Airplane.builder().withId("12345")
                 .withBuisnissClassSeats(Arrays.asList(1,2,3,4,5)).withEconomiClassSeats(Arrays.asList(6,7,8,9,10)).build();
     //    Assert.assertNotNull(airplane.getName());
         Trip trip = Trip.builder().withAvaibleBusinessClassSeats(airplane.getBuisnissClassSeats())
