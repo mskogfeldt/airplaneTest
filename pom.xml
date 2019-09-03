@@ -24,6 +24,8 @@
 
         <module>service-impl</module>
 
+        <module>enitity</module>
+
 
 
     </modules>

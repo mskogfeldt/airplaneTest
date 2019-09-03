@@ -5,14 +5,12 @@ import java.util.Objects;
 
 public class Airplane {
 
-    //private String name;
     private String id;
     private List<EconomyClassSeat> economyClassSeats;
     private List<BusinessClassSeat> businessClassSeats;
 
     public Airplane(Builder builder) {
         this.id = Objects.requireNonNull(builder.id);
-        //this.name = Objects.requireNonNull(builder.name);
         this.businessClassSeats = builder.businessClassSeats;
         this.economyClassSeats = builder.economyClassSeats;
     }
@@ -22,11 +20,7 @@ public class Airplane {
         return id;
     }
 
-   /* public String getName() {
-        return name;
-    }
 
-    */
 
     public List<BusinessClassSeat> getBusinessClassSeats() {
         return businessClassSeats;
@@ -41,14 +35,9 @@ public class Airplane {
     public static class Builder{
 
         private String id;
-        private String name;
         private List<EconomyClassSeat> economyClassSeats;
         private List<BusinessClassSeat> businessClassSeats;
 
-        public Builder withName(String name){
-            this.name = name;
-            return this;
-        }
 
         public Builder withId(String id) {
             this.id = id;
