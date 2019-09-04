@@ -26,5 +26,8 @@ public class EconomyClassSeatEntity {
             this.seatNumber = seatNumber;
             return this;
         }
+
+        public EconomyClassSeatEntity build() {
+            return new EconomyClassSeatEntity(this);}
     }
 }

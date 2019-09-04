@@ -89,23 +89,23 @@ public class TripEntity {
         private int costForBuisnessClassSeat;
         private int costForEkonomyClassSeat;
 
-        public Builder withAvaibleBusinessClassSeats(List<BusinessClassSeatEntity> avalibleBusinessClassSeats){
+        public Builder withAvaibleBusinessClassSeatEntitys(List<BusinessClassSeatEntity> avalibleBusinessClassSeatEntitys){
             this.avalibleBusinessClassSeatEntitys = avalibleBusinessClassSeatEntitys;
             return this;
         }
 
-        public Builder withBookedBusinessClassSeatEntitys(List<BusinessClassSeatEntity> bookedBusinessClassSeats){
+        public Builder withBookedBusinessClassSeatEntitys(List<BusinessClassSeatEntity> bookedBusinessClassSeatEntityss){
             this.avalibleBusinessClassSeatEntitys = avalibleBusinessClassSeatEntitys;
             return this;
         }
 
-        public Builder withAvalibleEconomiClassSeatEntitys(List<EconomyClassSeatEntity> avalibleEconomyClassSeats){
-            this.avalibleEconomyClassSeatEntitys = avalibleEconomyClassSeats;
-            return this;
-        }
-
-        public Builder withBookedEconomiClassSeats(List<EconomyClassSeatEntity> bookedEconomyClassSeats){
+        public Builder withAvalibleEconomiClassSeatEntitys(List<EconomyClassSeatEntity> avalibleEconomyClassSeatEntitys){
             this.avalibleEconomyClassSeatEntitys = avalibleEconomyClassSeatEntitys;
+            return this;
+        }
+
+        public Builder withBookedEconomiClassSeatEntitys(List<EconomyClassSeatEntity> bookedEconomyClassSeatEntitys){
+            this.bookedEconomyClassSeatEntitys = bookedEconomyClassSeatEntitys;
             return this;
         }
 

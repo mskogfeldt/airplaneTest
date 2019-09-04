@@ -12,7 +12,8 @@ public class DomainTest {
 
     @Test
     public void testCreatingCustomer() {
-        Customer customer = Customer.builder().withFirstName("Adam").withLastName("Abdersson").withSsn("12345").build();
+        Customer customer = Customer.builder().withFirstName("Adam").withLastName("Andersson")
+                .withSsn("12345").build();
         Assert.assertNotNull(customer.getFirstName());
     }
 
@@ -72,7 +73,8 @@ public class DomainTest {
                 .withBusinissClassSeats(businessClassSeats)
                 .withEconomyClassSeats(economyClassSeats).build();
 
-        Trip trip = Trip.builder().withAvaibleBusinessClassSeats(airplane.getBusinessClassSeats())
+        Trip trip = Trip.builder()
+                .withAvaibleBusinessClassSeats(airplane.getBusinessClassSeats())
                 .withBookedBusinessClassSeats(new ArrayList<BuisnessClassSeats>())
                 .withAvalibleEconomiClassSeats(airplane.getEconomyClassSeats())
                 .withBookedEconomiClassSeats(new ArrayList<EconomyClassSeat>())

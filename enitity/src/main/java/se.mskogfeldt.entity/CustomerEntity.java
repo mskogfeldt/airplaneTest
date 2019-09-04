@@ -9,12 +9,10 @@ public class CustomerEntity {
     private String ssn;
 
     public CustomerEntity(Builder builder) {
-        this.firstName = Objects.requireNonNull(builder.firstName);
-        this.lastName = Objects.requireNonNull(builder.lastName);
-        this.ssn = Objects.requireNonNull(builder.ssn);
-
+        this.firstName = Objects.requireNonNull(builder.firstName,"dd");
+        this.lastName = Objects.requireNonNull(builder.lastName,"fff");
+        this.ssn = Objects.requireNonNull(builder.ssn,"dd");
     }
-
 
     public String getFirstName() {
         return firstName;
@@ -28,15 +26,15 @@ public class CustomerEntity {
         return ssn;
     }
 
-    public void setFirstName(String firstName) {
+    private void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void setLastName(String lastName) {
+    private void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public void setSsn(String ssn) {
+    private void setSsn(String ssn) {
         this.ssn = ssn;
     }
 
@@ -49,25 +47,25 @@ public class CustomerEntity {
         private String lastName;
         private String ssn;
 
-    }
+        public Builder withFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
 
-    public Builder withFirstName(String firstName){
-        this.firstName = firstName;
-        return this;
-    }
+        public Builder withLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
 
-    public Builder withLastName(String lastName){
-        this.lastName = lastName;
-        return this;
-    }
+        public Builder withSsn(String ssn) {
+            this.ssn = ssn;
+            return this;
+        }
 
-    public Builder withSsn(String ssn){
-        this.ssn = ssn;
-        return this;
-    }
+        public CustomerEntity build() {
+            return new CustomerEntity(this);
+        }
 
-    public CustomerEntity build(){
-        return new CustomerEntity(this);
     }
 
 }

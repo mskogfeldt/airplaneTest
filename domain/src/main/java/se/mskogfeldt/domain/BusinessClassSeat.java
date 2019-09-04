@@ -6,7 +6,7 @@ public class BusinessClassSeat {
 
     private int seatNumber;
 
-    public BusinessClassSeat(BusinessClassSeat.Builder builder){
+    public BusinessClassSeat(Builder builder){
         this.seatNumber = Objects.requireNonNull(builder.seatNumber);
 
     }
@@ -20,7 +20,7 @@ public class BusinessClassSeat {
 
         private int seatNumber;
 
-        public BusinessClassSeat.Builder withSeatNumber(int seatNumber){
+        public Builder withSeatNumber(int seatNumber){
             this.seatNumber = seatNumber;
             return this;
         }

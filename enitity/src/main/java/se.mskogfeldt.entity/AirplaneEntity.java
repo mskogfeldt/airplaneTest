@@ -11,7 +11,7 @@ public class AirplaneEntity {
     private List<EconomyClassSeatEntity> economyClassSeatEntitys;
     private List<BusinessClassSeatEntity> businessClassSeatEntitys;
 
-    public AirplaneEntity(Builder builder){
+    public AirplaneEntity(Builder builder) {
         this.id = Objects.requireNonNull(builder.id);
         this.businessClassSeatEntitys = builder.businessClassSeatEntitys;
         this.economyClassSeatEntitys = builder.economyClassSeatEntitys;
@@ -41,7 +41,11 @@ public class AirplaneEntity {
         this.businessClassSeatEntitys = businessClassSeatEntitys;
     }
 
-    public static class Builder{
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
         private String id;
         private List<EconomyClassSeatEntity> economyClassSeatEntitys;
         private List<BusinessClassSeatEntity> businessClassSeatEntitys;
@@ -56,8 +60,8 @@ public class AirplaneEntity {
             return this;
         }
 
-        public Builder withBusinissClassSeatEntitys(List<BusinessClassSeatEntity> buisnissClassSeatEntitys) {
-            this.businessClassSeatEntitys = buisnissClassSeatEntitys;
+        public Builder withBusinessClassSeatEntitys(List<BusinessClassSeatEntity> buisnessClassSeatEntitys) {
+            this.businessClassSeatEntitys = buisnessClassSeatEntitys;
             return this;
         }
 
