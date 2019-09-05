@@ -10,6 +10,13 @@ import java.util.List;
 
 public class EntityTest {
 
+    @Test
+    public void testCreatingAirLineEntity(){
+        AirLineEntity airLineEntity = AirLineEntity.builder()
+                .withName("Airair")
+                .withTreasury(50000).build();
+        Assert.assertNotNull(airLineEntity.getTreasury());
+    }
 
     @Test
     public void testCreatingCustomerentity() {

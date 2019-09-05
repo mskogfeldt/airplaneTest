@@ -20,7 +20,7 @@
 
         <module>service</module>
 
-        <module>dap-impl</module>
+        <module>dao-impl</module>
 
         <module>service-impl</module>
 

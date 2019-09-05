@@ -11,6 +11,13 @@ import java.util.List;
 public class DomainTest {
 
     @Test
+    public void testCreatingAirline(){
+        AirLine airLine = AirLine.builder().withName("Airair")
+                .withTreasury(50000).build();
+        Assert.assertNotNull(airLine.getName());
+    }
+
+    @Test
     public void testCreatingCustomer() {
         Customer customer = Customer.builder().withFirstName("Adam").withLastName("Andersson")
                 .withSsn("12345").build();
