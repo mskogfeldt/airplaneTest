@@ -21,6 +21,14 @@ public class AirLineEntity {
         return treasury;
     }
 
+    @Override
+    public String toString() {
+        return "AirLineEntity{" +
+                "treasury=" + treasury +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     public static Builder builder(){
         return new Builder();
     }

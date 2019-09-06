@@ -21,6 +21,14 @@ public class AirLine {
         return treasury;
     }
 
+    @Override
+    public String toString() {
+        return "AirLine{" +
+                "name='" + name + '\'' +
+                ", treasury=" + treasury +
+                '}';
+    }
+
     public static Builder builder() { return new Builder();}
 
     public static class Builder {
