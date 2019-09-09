@@ -12,9 +12,25 @@ public class EntityTest {
 
     @Test
     public void testCreatingAirLineEntity(){
+        List<BusinessClassSeatEntity> businessClassSeatEntities = new ArrayList<>();
+        List<EconomyClassSeatEntity> economyClassSeatEntities = new ArrayList<>();
+        List<AirplaneEntity> fleat = new ArrayList<>();
+        BusinessClassSeatEntity businessClassSeatEntity1 = BusinessClassSeatEntity.builder()
+                .withSeatnumber(1).build();
+        EconomyClassSeatEntity economyClassSeatEntity1 = EconomyClassSeatEntity.builder()
+                .withSeatnumber(1).build();
+        businessClassSeatEntities.add(businessClassSeatEntity1);
+        economyClassSeatEntities.add(economyClassSeatEntity1);
+
+        AirplaneEntity airplaneEntity = AirplaneEntity.builder().withId("12345")
+                .withBusinessClassSeatEntitys(businessClassSeatEntities)
+                .withEconomyClassSeatEntitys(economyClassSeatEntities).build();
+
+
         AirLineEntity airLineEntity = AirLineEntity.builder()
                 .withName("Airair")
                 .withTreasury(50000).build();
+        airLineEntity.fleat.add(airplaneEntity);
         Assert.assertNotNull(airLineEntity.getTreasury());
     }
 

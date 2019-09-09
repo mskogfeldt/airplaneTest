@@ -1,15 +1,18 @@
 package se.mskogfeldt.domain;
 
+import java.util.List;
 import java.util.Objects;
 
 public class AirLine {
 
     public String name;
     public int treasury;
+    public List<Airplane> fleat;
 
     public AirLine(Builder builder) {
         this.name = Objects.requireNonNull(builder.name);
         this.treasury = Objects.requireNonNull(builder.treasury);
+        this.fleat = builder.fleat;
 
     }
 
@@ -19,6 +22,10 @@ public class AirLine {
 
     public int getTreasury() {
         return treasury;
+    }
+
+    public List<Airplane> getFleat() {
+        return fleat;
     }
 
     @Override
@@ -35,6 +42,7 @@ public class AirLine {
 
         private String name;
         private int treasury;
+        private List<Airplane> fleat;
 
         public Builder withName(String name) {
             this.name = name;
@@ -43,6 +51,11 @@ public class AirLine {
 
         public Builder withTreasury(int treasury) {
             this.treasury = treasury;
+            return this;
+        }
+
+        public Builder withFleat(List<Airplane> fleat) {
+            this.fleat = fleat;
             return this;
         }
 

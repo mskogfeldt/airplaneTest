@@ -14,4 +14,6 @@ public interface AirLineDao {
     void updateTreasury(String name);
 
     void updateName(String name);
+
+    Collection<AirLineEntity> readAll();
 }

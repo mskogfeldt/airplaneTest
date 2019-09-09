@@ -20,16 +20,24 @@ public class AirLineDaoImpl implements AirLineDao {
 
  */
 
+
+
     public void create(AirLineEntity airLineEntity){
         airLines.put(airLineEntity.getName(),airLineEntity);
     }
 
     public Collection<AirLineEntity> read(String name){
-        return airLines.values();//.stream().filter(airLineEntity->airLineEntity.getName().equalsIgnoreCase(name)).collect(Collectors.toSet());
+        return airLines.values().stream().filter(airLineEntity->airLineEntity.getName().equalsIgnoreCase(name)).collect(Collectors.toSet());
 
     }
 
+    public Collection<AirLineEntity> readAll(){
+        return airLines.values().stream().collect(Collectors.toSet());
+    }
+
     public void delete(String name){
+        airLines.remove(name);
+
 
     }
 

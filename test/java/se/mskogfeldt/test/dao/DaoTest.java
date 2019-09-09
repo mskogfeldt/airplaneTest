@@ -13,13 +13,34 @@ public class DaoTest {
 
 
     @Test
-    public void TestCreateAirlineDao(){
+    public void testCreateAndReadFromAirlineDao(){
         AirLineDao airLineDao = new AirLineDaoImpl();
         airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair").build());
         airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair2").build());
 
         Assert.assertEquals(1, airLineDao.read("Airair").size());
         Collection<AirLineEntity> airLines=airLineDao.read("Airair");
+        System.out.println(airLines);
+    }
+
+    @Test
+    public void testDeleteAirLineFromDao(){
+        AirLineDao airLineDao = new AirLineDaoImpl();
+        airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair").build());
+        airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair2").build());
+        airLineDao.delete("Airair");
+        Assert.assertEquals(1, airLineDao.readAll().size());
+        Collection<AirLineEntity> airLines=airLineDao.readAll();
+        System.out.println(airLines);
+    }
+
+    @Test
+    public void readAllFromAirLineDao(){
+        AirLineDao airLineDao = new AirLineDaoImpl();
+        airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair").build());
+        airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair2").build());
+        Assert.assertEquals(2, airLineDao.readAll().size());
+        Collection<AirLineEntity> airLines=airLineDao.readAll();
         System.out.println(airLines);
     }
 
