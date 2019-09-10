@@ -14,7 +14,7 @@ public class EntityTest {
     public void testCreatingAirLineEntity(){
         List<BusinessClassSeatEntity> businessClassSeatEntities = new ArrayList<>();
         List<EconomyClassSeatEntity> economyClassSeatEntities = new ArrayList<>();
-        List<AirplaneEntity> fleat = new ArrayList<>();
+
         BusinessClassSeatEntity businessClassSeatEntity1 = BusinessClassSeatEntity.builder()
                 .withSeatnumber(1).build();
         EconomyClassSeatEntity economyClassSeatEntity1 = EconomyClassSeatEntity.builder()
@@ -26,11 +26,14 @@ public class EntityTest {
                 .withBusinessClassSeatEntitys(businessClassSeatEntities)
                 .withEconomyClassSeatEntitys(economyClassSeatEntities).build();
 
+        List<AirplaneEntity> fleat1 = new ArrayList<>();
+        fleat1.add(airplaneEntity);
 
         AirLineEntity airLineEntity = AirLineEntity.builder()
                 .withName("Airair")
-                .withTreasury(50000).build();
-        airLineEntity.fleat.add(airplaneEntity);
+                .withTreasury(50000)
+                .withFleat(fleat1).build();
+
         Assert.assertNotNull(airLineEntity.getTreasury());
     }
 
