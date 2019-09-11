@@ -70,30 +70,58 @@ public class EntityTest {
     }
 
     @Test
-    public void testCreatingTrip(){
+    public void testCreatingTripEntity(){
+
         List<BusinessClassSeatEntity> businessClassSeatEntities = new ArrayList<>();
         List<EconomyClassSeatEntity> economyClassSeatEntities = new ArrayList<>();
+
         BusinessClassSeatEntity businessClassSeatEntity1 = BusinessClassSeatEntity.builder()
                 .withSeatnumber(1).build();
+
         EconomyClassSeatEntity economyClassSeatEntity1 = EconomyClassSeatEntity.builder()
                 .withSeatnumber(1).build();
+
         businessClassSeatEntities.add(businessClassSeatEntity1);
         economyClassSeatEntities.add(economyClassSeatEntity1);
+
+        List<FoodEntity> bMenuEntity = new ArrayList<>();
+        List<FoodEntity> eMenuEntity = new ArrayList<>();
+
+        FoodEntity eal = FoodEntity.builder().withName("Eal")
+                .withCost(100).build();
+
+        FoodEntity banana = FoodEntity.builder().withName("Banana")
+                .withCost(200).build();
+
+        bMenuEntity.add(banana);
+        eMenuEntity.add(eal);
 
         AirplaneEntity airplaneEntity = AirplaneEntity.builder().withId("12345")
                 .withBusinessClassSeatEntitys(businessClassSeatEntities)
                 .withEconomyClassSeatEntitys(economyClassSeatEntities).build();
 
+        List<AirplaneEntity> fleat1 = new ArrayList<>();
+        fleat1.add(airplaneEntity);
+
+        AirLineEntity airLineEntity = AirLineEntity.builder()
+                .withName("Airair")
+                .withTreasury(50000)
+                .withFleat(fleat1).build();
+
         TripEntity tripEntity = TripEntity.builder()
+                .withAirLineEntity(airLineEntity)
+                .withAirplaneEntity(airplaneEntity)
+                .withBusinessClassMenuEntity(bMenuEntity)
+                .withEconomyClassMenuEntity(eMenuEntity)
                 .withAvaibleBusinessClassSeatEntitys(airplaneEntity.getBusinessClassSeatEntitys())
                 .withBookedBusinessClassSeatEntitys(new ArrayList<BusinessClassSeatEntity>())
                 .withAvalibleEconomiClassSeatEntitys(airplaneEntity.getEconomyClassSeatEntitys())
                 .withBookedEconomiClassSeatEntitys(new ArrayList<EconomyClassSeatEntity>())
                 .withCostForBuisnessClassSeat(20000)
-                .withCostForEkonomyClassSeat(5000)
+                .withCostForEconomyClassSeat(5000)
                 .build();
 
-        Assert.assertNotNull(tripEntity.getCostForEkonomyClassSeat());
+        Assert.assertNotNull(tripEntity.getCostForEconomyClassSeat());
 
     }
 

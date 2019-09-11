@@ -12,7 +12,7 @@ public class DomainTest {
 
     @Test
     public void testCreatingAirline(){
-        List<BusinessClassSeat> businessClassSeats =new ArrayList<>();
+        List<BusinessClassSeat> businessClassSeats = new ArrayList<>();
         List<EconomyClassSeat>  economyClassSeats = new ArrayList<>();
 
         BusinessClassSeat businessClassSeat1 = BusinessClassSeat.builder()
@@ -86,28 +86,51 @@ public class DomainTest {
 
     @Test
     public void testCreatingTrip() {
+
         List<BusinessClassSeat> businessClassSeats =new ArrayList<>();
         List<EconomyClassSeat>  economyClassSeats = new ArrayList<>();
+
         BusinessClassSeat businessClassSeat1 = BusinessClassSeat.builder()
                 .withSeatNumber(1).build();
         EconomyClassSeat economyClassSeat1 = EconomyClassSeat.builder()
                 .withSeatNumber(1).build();
+
         businessClassSeats.add(businessClassSeat1);
         economyClassSeats.add(economyClassSeat1);
+
+        List<Food> bMenu = new ArrayList<>();
+        List<Food> eMenu = new ArrayList<>();
+
+        Food eal = Food.builder().withName("Eal").withCost(100).build();
+        Food banana = Food.builder().withName("Banana").withCost(200).build();
+
+        bMenu.add(banana);
+        eMenu.add(eal);
 
         Airplane airplane =Airplane.builder().withId("12345")
                 .withBusinissClassSeats(businessClassSeats)
                 .withEconomyClassSeats(economyClassSeats).build();
 
+        List<Airplane> fleat1 = new ArrayList<>();
+        fleat1.add(airplane);
+
+        AirLine airLine = AirLine.builder().withName("Airair")
+                .withTreasury(50000)
+                .withFleat(fleat1).build();
+
         Trip trip = Trip.builder()
+                .withAirLine(airLine)
+                .withAirplane(airplane)
+                .withBusinessClassMenu(bMenu)
+                .withEconomyClassMenu(eMenu)
                 .withAvaibleBusinessClassSeats(airplane.getBusinessClassSeats())
-                .withBookedBusinessClassSeats(new ArrayList<BuisnessClassSeats>())
+                .withBookedBusinessClassSeats(new ArrayList<BusinessClassSeat>())
                 .withAvalibleEconomiClassSeats(airplane.getEconomyClassSeats())
                 .withBookedEconomiClassSeats(new ArrayList<EconomyClassSeat>())
-                .withCostForEkonomyClassSeat(5000)
-                .withCostForBuisnessClassSeat(20000)
+                .withCostForEconomyClassSeat(5000)
+                .withCostForBusinessClassSeat(20000)
                 .build();
-        Assert.assertNotNull(trip.getCostForEkonomyClassSeat());
+        Assert.assertNotNull(trip.getCostForEconomyClassSeat());
     }
 
 

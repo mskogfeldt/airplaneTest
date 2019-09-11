@@ -1,6 +1,7 @@
 package se.mskogfeldt.domain;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class Trip {
@@ -17,12 +18,17 @@ public class Trip {
     private List<EconomyClassSeat> avalibleEconomyClassSeats;
     private List<EconomyClassSeat> bookedEconomyClassSeats;
 
+
     private int costForBusinessClassSeat;
     private int costForEconomyClassSeat;
 
     // plane.getBusnessClassSeats();
     public Trip(Builder builder) {
-        this.
+        this.airLine = Objects.requireNonNull(builder.airLine);
+        this.airplane = Objects.requireNonNull(builder.airplane);
+
+        this.businessClassMenu = Objects.requireNonNull(builder.businessClassMenu);
+        this.economyClassMenu = Objects.requireNonNull(builder.economyClassMenu);
 
         this.avaibleBusinessClassSeats = Objects.requireNonNull(builder.avalibleBusinessClassSeats);
         this.bookedBusinessClassSeats = builder.bookedBusinessClassSeats;
@@ -55,11 +61,11 @@ public class Trip {
         return bookedEconomyClassSeats;
     }
 
-    public int getCostForBuisnessClassSeat() {
+    public int getCostForBusinessClassSeat() {
         return costForBusinessClassSeat;
     }
 
-    public int getCostForEkonomyClassSeat() {
+    public int getCostForEconomyClassSeat() {
         return costForEconomyClassSeat;
     }
 
@@ -85,6 +91,9 @@ public class Trip {
         private AirLine airLine;
         private Airplane airplane;
 
+        private List<Food> businessClassMenu;
+        private List<Food> economyClassMenu;
+
         private List<BusinessClassSeat> avalibleBusinessClassSeats;
         private List<BusinessClassSeat> bookedBusinessClassSeats;
 
@@ -101,6 +110,16 @@ public class Trip {
 
         public Builder withAirplane(Airplane airplane){
             this.airplane = airplane;
+            return this;
+        }
+
+        public Builder withBusinessClassMenu(List<Food> businessClassMenu) {
+            this.businessClassMenu = businessClassMenu;
+            return this;
+        }
+
+        public Builder withEconomyClassMenu(List<Food> economyClassMenu) {
+            this.economyClassMenu = economyClassMenu;
             return this;
         }
 
@@ -124,7 +143,7 @@ public class Trip {
             return this;
         }
 
-        public Builder withCostForBuisnessClassSeat(int costForBusinessClassSeat){
+        public Builder withCostForBusinessClassSeat(int costForBusinessClassSeat){
             this.costForBusinessClassSeat = costForBusinessClassSeat;
             return this;
 

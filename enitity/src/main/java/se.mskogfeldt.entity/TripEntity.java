@@ -10,6 +10,9 @@ public class TripEntity {
     private AirLineEntity airLineEntity;
     private AirplaneEntity airplaneEntity;
 
+    private List<FoodEntity> businessClassMenuEntity;
+    private List<FoodEntity> economyClassMenuEntity;
+
     private List<BusinessClassSeatEntity> avalibleBusinessClassSeatEntitys;
     private List<BusinessClassSeatEntity> bookedBusinessClassSeatEntitys;
 
@@ -23,6 +26,9 @@ public class TripEntity {
     public TripEntity(Builder builder) {
         this.airLineEntity = Objects.requireNonNull(builder.airLineEntity);
         this.airplaneEntity = Objects.requireNonNull(builder.airplaneEntity);
+
+        this.businessClassMenuEntity = Objects.requireNonNull(builder.businessClassMenuEntity);
+        this.economyClassMenuEntity = Objects.requireNonNull(builder.economyClassMenuEntity);
 
         this.avalibleBusinessClassSeatEntitys = Objects.requireNonNull(builder.avalibleBusinessClassSeatEntitys);
         this.bookedBusinessClassSeatEntitys = builder.bookedBusinessClassSeatEntitys;
@@ -113,8 +119,11 @@ public class TripEntity {
 
     public static class Builder {
 
-        private AirplaneEntity planeEntity;
+        private AirplaneEntity airplaneEntity;
         private AirLineEntity airLineEntity;
+
+        private List<FoodEntity> businessClassMenuEntity;
+        private List<FoodEntity> economyClassMenuEntity;
 
         private List<BusinessClassSeatEntity> avalibleBusinessClassSeatEntitys;
         private List<BusinessClassSeatEntity> bookedBusinessClassSeatEntitys;
@@ -125,13 +134,33 @@ public class TripEntity {
         private int costForBusinessClassSeat;
         private int costForEconomyClassSeat;
 
+        public Builder withAirLineEntity(AirLineEntity airLineEntity){
+            this.airLineEntity = airLineEntity;
+            return this;
+        }
+
+        public Builder withAirplaneEntity(AirplaneEntity airplaneEntity){
+            this.airplaneEntity = airplaneEntity;
+            return this;
+        }
+
+        public Builder withBusinessClassMenuEntity (List<FoodEntity> businessClassMenuEntity){
+            this.businessClassMenuEntity = businessClassMenuEntity;
+            return this;
+        }
+
+        public Builder withEconomyClassMenuEntity (List<FoodEntity> economyClassMenuEntity){
+            this.economyClassMenuEntity = economyClassMenuEntity;
+            return this;
+        }
+
         public Builder withAvaibleBusinessClassSeatEntitys(List<BusinessClassSeatEntity> avalibleBusinessClassSeatEntitys) {
             this.avalibleBusinessClassSeatEntitys = avalibleBusinessClassSeatEntitys;
             return this;
         }
 
-        public Builder withBookedBusinessClassSeatEntitys(List<BusinessClassSeatEntity> bookedBusinessClassSeatEntityss) {
-            this.avalibleBusinessClassSeatEntitys = avalibleBusinessClassSeatEntitys;
+        public Builder withBookedBusinessClassSeatEntitys(List<BusinessClassSeatEntity> bookedBusinessClassSeatEntitys) {
+            this.bookedBusinessClassSeatEntitys = bookedBusinessClassSeatEntitys;
             return this;
         }
 
@@ -151,7 +180,7 @@ public class TripEntity {
 
         }
 
-        public Builder withCostForEconomyClassSeatEntity(int costForEkonomyClassSeatEntity) {
+        public Builder withCostForEconomyClassSeat(int costForEconomyClassSeat) {
             this.costForEconomyClassSeat = costForEconomyClassSeat;
             return this;
 
