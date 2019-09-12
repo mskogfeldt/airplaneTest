@@ -4,9 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import se.mskogfeldt.domain.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class DomainTest {
 
@@ -87,6 +85,9 @@ public class DomainTest {
     @Test
     public void testCreatingTrip() {
 
+        Customer customer1 = Customer.builder().withFirstName("Adam").withLastName("Andersson")
+                .withSsn("12345").build();
+
         List<BusinessClassSeat> businessClassSeats =new ArrayList<>();
         List<EconomyClassSeat>  economyClassSeats = new ArrayList<>();
 
@@ -107,6 +108,9 @@ public class DomainTest {
         bMenu.add(banana);
         eMenu.add(eal);
 
+        Map<Customer, Food> bFood = new HashMap<>();
+        bFood.put(customer1,banana);
+
         Airplane airplane =Airplane.builder().withId("12345")
                 .withBusinissClassSeats(businessClassSeats)
                 .withEconomyClassSeats(economyClassSeats).build();
@@ -123,6 +127,7 @@ public class DomainTest {
                 .withAirplane(airplane)
                 .withBusinessClassMenu(bMenu)
                 .withEconomyClassMenu(eMenu)
+                .withBookedFood(bFood)
                 .withAvaibleBusinessClassSeats(airplane.getBusinessClassSeats())
                 .withBookedBusinessClassSeats(new ArrayList<BusinessClassSeat>())
                 .withAvalibleEconomiClassSeats(airplane.getEconomyClassSeats())
@@ -131,6 +136,9 @@ public class DomainTest {
                 .withCostForBusinessClassSeat(20000)
                 .build();
         Assert.assertNotNull(trip.getCostForEconomyClassSeat());
+
+
+
     }
 
 
