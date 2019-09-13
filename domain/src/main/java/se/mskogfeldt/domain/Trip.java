@@ -9,17 +9,17 @@ public class Trip {
     private Airplane airplane;
     private AirLine airLine;
 
+
     private List<Food> businessClassMenu;
     private List<Food> economyClassMenu;
 
     private Map<Customer, Food> bookedFood;
 
-
     private List<BusinessClassSeat> avaibleBusinessClassSeats;
     private Map<Integer, Customer> bookedBusinessClassSeats;
 
     private List<EconomyClassSeat> avalibleEconomyClassSeats;
-    private Map<EconomyClassSeat, Customer>bookedEconomyClassSeats;
+    private Map<Integer, Customer> bookedEconomyClassSeats;
 
     private int costForBusinessClassSeat;
     private int costForEconomyClassSeat;
@@ -27,6 +27,8 @@ public class Trip {
 
     public Trip(Builder builder) {
         this.airLine = Objects.requireNonNull(builder.airLine);
+
+
         this.airplane = Objects.requireNonNull(builder.airplane);
 
         this.bookedFood = builder.bookedFood;
@@ -66,7 +68,7 @@ public class Trip {
         return avaibleBusinessClassSeats;
     }
 
-    public Map<BusinessClassSeat, Customer> getBookedBusinessClassSeats() {
+    public Map<Integer, Customer> getBookedBusinessClassSeats() {
         return bookedBusinessClassSeats;
     }
 
@@ -74,7 +76,7 @@ public class Trip {
         return avalibleEconomyClassSeats;
     }
 
-    public Map<EconomyClassSeat, Customer> getBookedEconomyClassSeats() {
+    public Map<Integer, Customer> getBookedEconomyClassSeats() {
         return bookedEconomyClassSeats;
     }
 
@@ -91,7 +93,11 @@ public class Trip {
     }
 
 
-    public static Builder builder() { return new Builder(); }
+
+
+    public static Builder builder() {
+        return new Builder();
+    }
 
     public static class Builder {
         private AirLine airLine;
@@ -103,10 +109,10 @@ public class Trip {
         private Map<Customer, Food> bookedFood;
 
         private List<BusinessClassSeat> avalibleBusinessClassSeats;
-        private Map<BusinessClassSeat, Customer> bookedBusinessClassSeats;
+        private Map<Integer, Customer> bookedBusinessClassSeats;
 
         private List<EconomyClassSeat> avalibleEconomyClassSeats;
-        private Map<EconomyClassSeat, Customer> bookedEconomyClassSeats;
+        private Map<Integer, Customer> bookedEconomyClassSeats;
 
         private int costForBusinessClassSeat;
         private int costForEconomyClassSeat;
@@ -116,7 +122,9 @@ public class Trip {
             return this;
         }
 
-        public Builder withAirplane(Airplane airplane){
+
+
+        public Builder withAirplane(Airplane airplane) {
             this.airplane = airplane;
             return this;
         }
@@ -132,42 +140,42 @@ public class Trip {
         }
 
 
-        public Builder withBookedFood(Map<Customer, Food> bookedFood){
+        public Builder withBookedFood(Map<Customer, Food> bookedFood) {
             this.bookedFood = bookedFood;
             return this;
         }
 
-        public Builder withAvaibleBusinessClassSeats(List<BusinessClassSeat> avalibleBusinessClassSeats){
+        public Builder withAvaibleBusinessClassSeats(List<BusinessClassSeat> avalibleBusinessClassSeats) {
             this.avalibleBusinessClassSeats = avalibleBusinessClassSeats;
             return this;
         }
 
-        public Builder withBookedBusinessClassSeats(Map<BusinessClassSeat, Customer> bookedBusinessClassSeats){
+        public Builder withBookedBusinessClassSeats(Map<Integer, Customer> bookedBusinessClassSeats) {
             this.bookedBusinessClassSeats = bookedBusinessClassSeats;
             return this;
         }
 
-        public Builder withAvalibleEconomiClassSeats(List<EconomyClassSeat> avalibleEconomyClassSeats){
+        public Builder withAvalibleEconomiClassSeats(List<EconomyClassSeat> avalibleEconomyClassSeats) {
             this.avalibleEconomyClassSeats = avalibleEconomyClassSeats;
             return this;
         }
 
-        public Builder withBookedEconomiClassSeats(Map<EconomyClassSeat, Customer> bookedEconomyClassSeats){
+        public Builder withBookedEconomiClassSeats(Map<Integer, Customer> bookedEconomyClassSeats) {
             this.bookedEconomyClassSeats = bookedEconomyClassSeats;
             return this;
         }
 
-        public Builder withCostForBusinessClassSeat(int costForBusinessClassSeat){
+        public Builder withCostForBusinessClassSeat(int costForBusinessClassSeat) {
             this.costForBusinessClassSeat = costForBusinessClassSeat;
             return this;
 
         }
 
-        public Builder withCostForEconomyClassSeat(int costForEconomyClassSeat){
+        public Builder withCostForEconomyClassSeat(int costForEconomyClassSeat) {
             this.costForEconomyClassSeat = costForEconomyClassSeat;
             return this;
 
-            }
+        }
 
         public Trip build() {
             return new Trip(this);

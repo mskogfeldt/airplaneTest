@@ -6,6 +6,7 @@ import se.mskogfeldt.domain.BusinessClassSeat;
 import se.mskogfeldt.entity.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class EntityTest {
@@ -114,9 +115,9 @@ public class EntityTest {
                 .withBusinessClassMenuEntity(bMenuEntity)
                 .withEconomyClassMenuEntity(eMenuEntity)
                 .withAvaibleBusinessClassSeatEntitys(airplaneEntity.getBusinessClassSeatEntitys())
-                .withBookedBusinessClassSeatEntitys(new ArrayList<BusinessClassSeatEntity>())
+                .withBookedBusinessClassSeatEntitys(new HashMap<Integer, CustomerEntity>())
                 .withAvalibleEconomiClassSeatEntitys(airplaneEntity.getEconomyClassSeatEntitys())
-                .withBookedEconomiClassSeatEntitys(new ArrayList<EconomyClassSeatEntity>())
+                .withBookedEconomiClassSeatEntitys(new HashMap<Integer, CustomerEntity>())
                 .withCostForBuisnessClassSeat(20000)
                 .withCostForEconomyClassSeat(5000)
                 .build();

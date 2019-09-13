@@ -7,7 +7,7 @@ import se.mskogfeldt.domain.*;
 import java.util.*;
 
 public class DomainTest {
-
+/*
     @Test
     public void testCreatingAirline(){
         List<BusinessClassSeat> businessClassSeats = new ArrayList<>();
@@ -32,6 +32,8 @@ public class DomainTest {
                 .withFleat(fleat1).build();
         Assert.assertNotNull(airLine.getName());
     }
+
+ */
 
     @Test
     public void testCreatingCustomer() {
@@ -117,21 +119,21 @@ public class DomainTest {
 
         List<Airplane> fleat1 = new ArrayList<>();
         fleat1.add(airplane);
-
+/*
         AirLine airLine = AirLine.builder().withName("Airair")
                 .withTreasury(50000)
-                .withFleat(fleat1).build();
+                .withFleat(fleat1).build();*/
 
         Trip trip = Trip.builder()
-                .withAirLine(airLine)
+                //.withAirLine(airLine)
                 .withAirplane(airplane)
                 .withBusinessClassMenu(bMenu)
                 .withEconomyClassMenu(eMenu)
                 .withBookedFood(bFood)
                 .withAvaibleBusinessClassSeats(airplane.getBusinessClassSeats())
-                .withBookedBusinessClassSeats(new ArrayList<BusinessClassSeat>())
+                .withBookedBusinessClassSeats(new HashMap<Integer, Customer>())
                 .withAvalibleEconomiClassSeats(airplane.getEconomyClassSeats())
-                .withBookedEconomiClassSeats(new ArrayList<EconomyClassSeat>())
+                .withBookedEconomiClassSeats(new HashMap<Integer, Customer>())
                 .withCostForEconomyClassSeat(5000)
                 .withCostForBusinessClassSeat(20000)
                 .build();
