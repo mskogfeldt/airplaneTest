@@ -24,6 +24,10 @@ public class AirLine {
         return treasury;
     }
 
+    public void setTreasury(int treasury) {
+        this.treasury = treasury;
+    }
+
     public List<Airplane> getFleat() {
         return fleat;
     }

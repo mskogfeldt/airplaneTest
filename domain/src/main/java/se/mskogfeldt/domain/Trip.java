@@ -13,7 +13,7 @@ public class Trip {
     private List<Food> businessClassMenu;
     private List<Food> economyClassMenu;
 
-    private Map<Customer, Food> bookedFood;
+    private Map<Customer, List<Food>> bookedFood;
 
     private List<BusinessClassSeat> avaibleBusinessClassSeats;
     private Map<Integer, Customer> bookedBusinessClassSeats;
@@ -59,7 +59,7 @@ public class Trip {
         return economyClassMenu;
     }
 
-    public Map<Customer, Food> getBookedFood() {
+    public Map<Customer, List<Food>> getBookedFood() {
         return bookedFood;
     }
 
@@ -106,7 +106,7 @@ public class Trip {
         private List<Food> businessClassMenu;
         private List<Food> economyClassMenu;
 
-        private Map<Customer, Food> bookedFood;
+        private Map<Customer, List<Food>> bookedFood;
 
         private List<BusinessClassSeat> avalibleBusinessClassSeats;
         private Map<Integer, Customer> bookedBusinessClassSeats;
@@ -140,7 +140,7 @@ public class Trip {
         }
 
 
-        public Builder withBookedFood(Map<Customer, Food> bookedFood) {
+        public Builder withBookedFood(Map<Customer, List<Food>> bookedFood) {
             this.bookedFood = bookedFood;
             return this;
         }
