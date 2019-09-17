@@ -15,6 +15,8 @@ public class Trip {
 
     private Map<Customer, List<Food>> bookedFood;
 
+
+
     private List<BusinessClassSeat> avaibleBusinessClassSeats;
     private Map<Integer, Customer> bookedBusinessClassSeats;
 
@@ -93,8 +95,6 @@ public class Trip {
     }
 
 
-
-
     public static Builder builder() {
         return new Builder();
     }
@@ -117,11 +117,10 @@ public class Trip {
         private int costForBusinessClassSeat;
         private int costForEconomyClassSeat;
 
-        public  Builder withAirLine(AirLine airLine){
+        public Builder withAirLine(AirLine airLine) {
             this.airLine = airLine;
             return this;
         }
-
 
 
         public Builder withAirplane(Airplane airplane) {

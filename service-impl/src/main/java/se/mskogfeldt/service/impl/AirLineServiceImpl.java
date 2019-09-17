@@ -26,36 +26,33 @@ public class AirLineServiceImpl{
 
     }
 
+    public void takeOff(Trip trip) {
+
+    }
+
+    public void createTicket(Trip trip, Customer customer) {
+
+    }
+
+    public void addAirplane(AirLine airLine, Airplane airplane) {
+
+    }
+
+    /*
     public List<Food> chooseFromMenu(Trip trip, Customer customer){
         presentMenu(trip);
-        System.out.println(Do you wish to buy a Item from the menu?);
+        System.out.println("Do you wish to buy a Item from the menu?");
     }
 
-    public void buyFood(Trip trip, Customer customer) {
+
+ */
+
+/*
+    public void addFoodToCustomer(Trip trip, Customer customer, List<Food> food){
         List<Food> customersChoice = chooseFromMenu(trip, customer);
         presentMenu(trip);
-        trip.getBookedFood().put(customer, customersChoice);
-
-
     }
 
-    public Food selectFromMenu
-
-    bookFlight(Trip trip, Customer customer) {
-
-
-    }
-
-    takeOff(Trip trip) {
-
-    }
-
-    createTicket(Trip trip, Customer customer) {
-
-    }
-
-    addAirplane(Airline airlene, Airplane airplane) {
-
-    }
+ */
 
 }
