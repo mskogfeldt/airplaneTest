@@ -8,5 +8,8 @@
 
     </bean>
 
+    <bean id ="customerService" class="se.mskogfeldt.dao.impl.CustomerDaoImpl">
+
+    </bean>
 
 </beans>

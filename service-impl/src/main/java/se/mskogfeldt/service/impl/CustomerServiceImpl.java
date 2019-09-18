@@ -1,10 +1,25 @@
 package se.mskogfeldt.service.impl;
 
+import se.mskogfeldt.dao.CustomerDao;
 import se.mskogfeldt.domain.Customer;
 import se.mskogfeldt.entity.CustomerEntity;
 import se.mskogfeldt.service.CustomerService;
 
+import java.util.Objects;
+
+
 public class CustomerServiceImpl implements CustomerService {
+
+
+    private final CustomerDao customerDao;
+
+
+    public CustomerServiceImpl(CustomerDao customerDao) {
+        this.customerDao = Objects.requireNonNull(customerDao, "customerDao");
+    }
+
+
+
 
     public void createCustomer(Customer customer){
         CustomerEntity customerEntity = CustomerEntity.builder()
@@ -12,9 +27,11 @@ public class CustomerServiceImpl implements CustomerService {
                 .withFirstName(customer.getFirstName())
                 .withLastName(customer.getLastName()).build();
 
+        customerDao.creat(customerEntity);
+
     }
 
-    /*
+/*
 
      @Override
     public void createAccount(Account account) {
@@ -25,9 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
         account.getOrders().stream().map(order -> OrderEntity.builder().withSsn(account.getSsn()).withAmount(order.getAmount()).build())
                 .forEach(orderDao::insert);
     }
-     */
 
-    /*
 
     public void create(Account account) {
         if(accounts.containsKey(account.getId())){

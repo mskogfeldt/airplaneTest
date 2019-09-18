@@ -5,7 +5,10 @@ import se.mskogfeldt.domain.Customer;
 public interface CustomerService {
 
 
-    void createCustomer(Customer customer);
+    String DEFAULT_BEAN_NAME = "customerService";
+
+
+   // void createCustomer(Customer customer);
 
     /*
     String DEFAULT_BEAN_NAME = "accountComponentService";

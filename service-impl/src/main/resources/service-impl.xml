@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id ="airLineService" class="se.mskogfeldt.dao.impl.AirLineServiceImpl">
+        <constructor-arg name="airLineDao" ref="airLineDao"/>
+    </bean>
+
+    <bean id ="customerService" class="se.mskogfeldt.dao.impl.CustomerServiceImpl">
+        <constructor-arg name="customerDao" ref="customerDao"/>
+
+    </bean>
+
+</beans>
