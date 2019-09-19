@@ -2,6 +2,8 @@ package se.mskogfeldt.test.dao;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 import se.mskogfeldt.dao.AirLineDao;
 import se.mskogfeldt.dao.impl.AirLineDaoImpl;
 import se.mskogfeldt.domain.AirLine;
@@ -14,7 +16,9 @@ public class DaoTest {
 
     @Test
     public void testCreateAndReadFromAirlineDao(){
-        AirLineDao airLineDao = new AirLineDaoImpl();
+        ApplicationContext applicationContext = new GenericXmlApplicationContext("dao-impl.xml");
+       // AirLineDao airLineDao = new AirLineDaoImpl();
+        AirLineDao airLineDao = applicationContext.getBean(AirLineDao.class);
         airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair").build());
         airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair2").build());
 

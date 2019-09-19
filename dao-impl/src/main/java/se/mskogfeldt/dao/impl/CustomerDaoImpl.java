@@ -10,13 +10,13 @@ import java.util.Objects;
 
 public class CustomerDaoImpl implements CustomerDao {
 
-    private final CustomerDao customerDao;
+   // private final CustomerDao customerDao;
     private Map<String, CustomerEntity> customers = new HashMap<>();
 
-    public CustomerDaoImpl(CustomerDao customerDao){
+   /* public CustomerDaoImpl(CustomerDao customerDao){
         this.customerDao = Objects.requireNonNull(customerDao, "customerDao cannot be null");
     }
-
+*/
     public Map<String, CustomerEntity> getCustomers() {
         return customers;
     }

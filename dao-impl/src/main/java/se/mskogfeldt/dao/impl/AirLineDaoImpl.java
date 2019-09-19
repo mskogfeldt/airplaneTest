@@ -12,14 +12,15 @@ import java.util.stream.Collectors;
 
 public class AirLineDaoImpl implements AirLineDao {
 
-    private final AirLineDao airLineDao;
+   // private final AirLineDao airLineDao;
+
     private Map<String, AirLineEntity> airLines = new HashMap<>();
 
 
-    public AirLineDaoImpl(AirLineDao airLineDao){
+   /* public AirLineDaoImpl(AirLineDao airLineDao){
         this.airLineDao = Objects.requireNonNull(airLineDao, "airLineDao cannot be null");
     }
-
+*/
 
     public void create(AirLineEntity airLineEntity) {
         airLines.put(airLineEntity.getName(), airLineEntity);

@@ -110,8 +110,8 @@ public class DomainTest {
         bMenu.add(banana);
         eMenu.add(eal);
 
-        Map<Customer, Food> bFood = new HashMap<>();
-        bFood.put(customer1,banana);
+        Map<Customer, List<Food>> bFood = new HashMap<>();
+        bFood.put(customer1,bMenu);
 
         Airplane airplane =Airplane.builder().withId("12345")
                 .withBusinissClassSeats(businessClassSeats)

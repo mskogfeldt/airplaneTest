@@ -11,7 +11,7 @@ import java.util.Objects;
 public class CustomerServiceImpl implements CustomerService {
 
 
-    private final CustomerDao customerDao;
+    private CustomerDao customerDao;
 
 
     public CustomerServiceImpl(CustomerDao customerDao) {
@@ -27,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .withFirstName(customer.getFirstName())
                 .withLastName(customer.getLastName()).build();
 
-        customerDao.creat(customerEntity);
+        customerDao.create(customerEntity);
 
     }
 

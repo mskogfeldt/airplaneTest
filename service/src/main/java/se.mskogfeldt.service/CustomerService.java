@@ -8,7 +8,7 @@ public interface CustomerService {
     String DEFAULT_BEAN_NAME = "customerService";
 
 
-   // void createCustomer(Customer customer);
+   void createCustomer(Customer customer);
 
     /*
     String DEFAULT_BEAN_NAME = "accountComponentService";
