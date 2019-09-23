@@ -11,7 +11,7 @@ import se.mskogfeldt.entity.AirLineEntity;
 
 import java.util.Collection;
 
-public class DaoTest {
+public class DaoAirLineTest {
 
 
     @Test

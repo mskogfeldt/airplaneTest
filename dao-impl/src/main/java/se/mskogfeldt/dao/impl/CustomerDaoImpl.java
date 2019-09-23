@@ -4,9 +4,11 @@ import se.mskogfeldt.dao.CustomerDao;
 import se.mskogfeldt.domain.Customer;
 import se.mskogfeldt.entity.CustomerEntity;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class CustomerDaoImpl implements CustomerDao {
 
@@ -32,5 +34,11 @@ public class CustomerDaoImpl implements CustomerDao {
         }
         customers.put(customerEntity.getSsn(),customerEntity);
     }
+
+    public Collection<CustomerEntity> read(String ssn) {
+        return customers.values().stream().filter(customerEntity -> customerEntity.getSsn().equalsIgnoreCase(ssn)).collect(Collectors.toSet());
+
+    }
+
 
 }
