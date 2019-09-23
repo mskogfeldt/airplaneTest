@@ -33,4 +33,8 @@ public class CustomerDaoImpl implements CustomerDao {
         customers.put(customerEntity.getSsn(),customerEntity);
     }
 
+    public Collection<CustomerEntity> read(String name) {
+        return customers.values().stream().filter(customerEntity -> customerEntity.getSsn().equalsIgnoreCase(name)).collect(Collectors.toSet());
+
+    }
 }
