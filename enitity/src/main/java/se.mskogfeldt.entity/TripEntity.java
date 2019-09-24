@@ -8,6 +8,7 @@ import java.util.Objects;
 
 public class TripEntity {
 
+    private String id;
     private AirLineEntity airLineEntity;
     private AirplaneEntity airplaneEntity;
 
@@ -27,6 +28,7 @@ public class TripEntity {
 
 
     public TripEntity(Builder builder) {
+        this.id = Objects.requireNonNull(builder.id);
         this.airLineEntity = Objects.requireNonNull(builder.airLineEntity);
         this.airplaneEntity = Objects.requireNonNull(builder.airplaneEntity);
 
@@ -42,6 +44,10 @@ public class TripEntity {
         this.costForBusinessClassSeat = Objects.requireNonNull(builder.costForBusinessClassSeat);
         this.costForEconomyClassSeat = Objects.requireNonNull(builder.costForEconomyClassSeat);
 
+    }
+
+    public String getId(){
+        return id;
     }
 
     public AirLineEntity getAirLineEntity() {
@@ -147,9 +153,12 @@ public class TripEntity {
 
     public static class Builder {
 
+        private String id;
+
+        private boolean isDone;
+
         private AirplaneEntity airplaneEntity;
         private AirLineEntity airLineEntity;
-
 
         private List<FoodEntity> businessClassMenuEntity;
         private List<FoodEntity> economyClassMenuEntity;
@@ -164,6 +173,11 @@ public class TripEntity {
 
         private int costForBusinessClassSeat;
         private int costForEconomyClassSeat;
+
+        public Builder withId(String id){
+            this.id = id;
+            return this;
+        }
 
         public Builder withAirLineEntity(AirLineEntity airLineEntity) {
             this.airLineEntity = airLineEntity;

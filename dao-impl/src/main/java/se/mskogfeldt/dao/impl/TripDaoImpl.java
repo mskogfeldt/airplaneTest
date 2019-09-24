@@ -12,8 +12,18 @@ public class TripDaoImpl implements TripDao {
    // private final TripDao tripDao;
     Map<String, TripEntity> trips = new HashMap<>();
 
-   /* public TripDaoImpl(TripDao tripDao){
-        this.tripDao = Objects.requireNonNull(tripDao, "tripDao cannot be null");
+    public void createTrip(TripEntity tripEntity){
+        trips.put(tripEntity.getId(),tripEntity);
+    }
+
+
+   /*     public void create(TripEntity tripEntity) {
+        trips.put(tripEntity.getName(), airLineEntity);
+    }
+
+    public Collection<AirLineEntity> read(String name) {
+        return airLines.values().stream().filter(airLineEntity -> airLineEntity.getName().equalsIgnoreCase(name)).collect(Collectors.toSet());
+
     }*/
 
 }

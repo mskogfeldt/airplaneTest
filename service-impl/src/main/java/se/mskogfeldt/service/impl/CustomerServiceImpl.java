@@ -2,6 +2,7 @@ package se.mskogfeldt.service.impl;
 
 import se.mskogfeldt.dao.CustomerDao;
 import se.mskogfeldt.domain.Customer;
+import se.mskogfeldt.domain.Trip;
 import se.mskogfeldt.entity.CustomerEntity;
 import se.mskogfeldt.service.CustomerService;
 
@@ -18,7 +19,9 @@ public class CustomerServiceImpl implements CustomerService {
         this.customerDao = Objects.requireNonNull(customerDao, "customerDao");
     }
 
+    public void bookTrip(Customer customer, Trip trip){
 
+    }
 
 
     public void createCustomer(Customer customer){

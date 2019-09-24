@@ -6,6 +6,10 @@ import java.util.Objects;
 
 public class Trip {
 
+    private String id;
+
+    private boolean isDone;
+
     private Airplane airplane;
     private AirLine airLine;
 
@@ -14,7 +18,6 @@ public class Trip {
     private List<Food> economyClassMenu;
 
     private Map<Customer, List<Food>> bookedFood;
-
 
 
     private List<BusinessClassSeat> avaibleBusinessClassSeats;
@@ -28,6 +31,8 @@ public class Trip {
 
 
     public Trip(Builder builder) {
+
+        this.id = Objects.requireNonNull(builder.id);
         this.airLine = Objects.requireNonNull(builder.airLine);
 
 
@@ -47,6 +52,14 @@ public class Trip {
         this.costForBusinessClassSeat = Objects.requireNonNull(builder.costForBusinessClassSeat);
         this.costForEconomyClassSeat = Objects.requireNonNull(builder.costForEconomyClassSeat);
 
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String setId() {
+        return id;
     }
 
     public Airplane getAirplane() {
@@ -100,6 +113,7 @@ public class Trip {
     }
 
     public static class Builder {
+        private String id;
         private AirLine airLine;
         private Airplane airplane;
 
@@ -116,6 +130,11 @@ public class Trip {
 
         private int costForBusinessClassSeat;
         private int costForEconomyClassSeat;
+
+        public Builder withId(String id){
+            this.id = id;
+            return this;
+        }
 
         public Builder withAirLine(AirLine airLine) {
             this.airLine = airLine;
