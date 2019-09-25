@@ -22,7 +22,7 @@ public class EconomyClassSeatEntity {
     public static class Builder{
         private int seatNumber;
 
-        public Builder withSeatnumber(int seatNumber){
+        public Builder withSeatNumber(int seatNumber){
             this.seatNumber = seatNumber;
             return this;
         }

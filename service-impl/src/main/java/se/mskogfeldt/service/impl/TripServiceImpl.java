@@ -1,46 +1,39 @@
 package se.mskogfeldt.service.impl;
 
-import se.mskogfeldt.domain.BusinessClassSeat;
-import se.mskogfeldt.domain.Customer;
-import se.mskogfeldt.domain.Food;
-import se.mskogfeldt.domain.Trip;
+import se.mskogfeldt.domain.*;
 import se.mskogfeldt.entity.BusinessClassSeatEntity;
 import se.mskogfeldt.entity.EconomyClassSeatEntity;
 import se.mskogfeldt.entity.TripEntity;
 import se.mskogfeldt.service.TripService;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class TripServiceImpl implements TripService {
 
+/*
+    public TripServiceImpl(TripDao tripDao) {
+        this.tripDao = Required.notNull(tripDao, "tripDao");
+    }
+    
+ */
 
 
     public void addCustomerToMapOfFood(Trip trip, Customer customer, List<Food> food) {
         trip.getBookedFood().put(customer, food);
     }
 
-    public List<Food> addFoodToList(Food food, List<Food> list){
+    public List<Food> addFoodToList(Food food, List<Food> list) {
         list.add(food);
         return list;
     }
 
-    public List<Food>removeFoodFromList(Food food, List<Food> list){
+    public List<Food> removeFoodFromList(Food food, List<Food> list) {
         list.add(food);
         return list;
     }
-
-    public BusinessClassSeat removeABusinessSeatFromList(BusinessClassSeat seat){
-
-    }
-/*
-    public void bookEconomySeat(Customer customer, BusinessClassSeat businessClassSeat, Trip trip){
-        tripDao.pu
-
-    }
-    
- */
 
     public Collection<BusinessClassSeatEntity> readAllAvalibleBusinessClassSeats(TripEntity tripEntity) {
         List<BusinessClassSeatEntity> returnCollection = tripEntity.getAvalibleBusinessClassSeatEntitys();
@@ -52,49 +45,63 @@ public class TripServiceImpl implements TripService {
         return returnCollection;
     }
 
-/*
-public Collection<BusinessClassSeatEntity> readAllAvalibleBusinessClassSeats() {
-        return avalibleBusinessClassSeats.values().stream().collect(Collectors.toSet());
+    public EconomyClassSeat takeEntityMakeEconomyClassSeat(EconomyClassSeatEntity economyClassSeatEntity) {
+        EconomyClassSeat economyClassSeat = EconomyClassSeat.builder()
+                .withSeatNumber(economyClassSeatEntity.getSeatNumber()).build();
+        return economyClassSeat;
     }
 
-    public Collection<AirLineEntity> readAll() {
-        return airLines.values().stream().collect(Collectors.toSet());
+    public BusinessClassSeat takeEntityMakeBusinessClassSeat(BusinessClassSeatEntity businessClassSeatEntity) {
+        BusinessClassSeat businessClassSeat = BusinessClassSeat.builder()
+                .withSeatNumber(businessClassSeatEntity.getSeatNumber()).build();
+        return businessClassSeat;
     }
 
-@Test
-    public void readAllFromAirLineDao(){
-        AirLineDao airLineDao = new AirLineDaoImpl();
-        airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair").build());
-        airLineDao.create(AirLineEntity.builder().withTreasury(50000).withName("Airair2").build());
-        Assert.assertEquals(2, airLineDao.readAll().size());
-        Collection<AirLineEntity> airLines=airLineDao.readAll();
-        System.out.println(airLines);
-    }
-    public List<Food> editFoodToCustomersOrder(List<Food> food){
-        List<Food> newFood =
-
+    public List<BusinessClassSeat> createBusinessClassSeats(List<BusinessClassSeatEntity> businessClassSeatEntities) {
+        List<BusinessClassSeat> businessClassSeats = new ArrayList<>();
+        for (BusinessClassSeatEntity businessClassSeatEntity : businessClassSeatEntities) {
+            businessClassSeats.add(takeEntityMakeBusinessClassSeat(businessClassSeatEntity));
+        }
+        return businessClassSeats;
     }
 
- */
 
-    public void bookFlight(Trip trip, Customer customer) {
-
+    public List<EconomyClassSeat> createEconomyClassSeats(List<EconomyClassSeatEntity> economyClassSeatEntities) {
+        List<EconomyClassSeat> economyClassSeats = new ArrayList<>();
+        for (EconomyClassSeatEntity economyClassSeatEntity : economyClassSeatEntities) {
+            economyClassSeats.add(takeEntityMakeEconomyClassSeat(economyClassSeatEntity));
+        }
+        return economyClassSeats;
     }
 
-    public void removeCustomerFromBookedFood(Trip trip, Customer customer){
-        trip.getBookedFood().remove(customer);
+
+    public EconomyClassSeatEntity takeSeatMakeEconomyClassSeatEntity(EconomyClassSeat economyClassSeat) {
+        EconomyClassSeatEntity economyClassSeatEntity = EconomyClassSeatEntity.builder()
+                .withSeatNumber(economyClassSeat.getSeatNumber()).build();
+        return economyClassSeatEntity;
     }
 
-    public void removeCustomerFromEconomyClassSeats(Trip trip, Customer customer){
-        trip.getBookedEconomyClassSeats().remove(customer);
+    public BusinessClassSeatEntity takeSeatMakeBusinessClassSeatEntity(BusinessClassSeat businessClassSeat) {
+        BusinessClassSeatEntity businessClassSeatEntity = BusinessClassSeatEntity.builder()
+                .withSeatNumber(businessClassSeat.getSeatNumber()).build();
+        return businessClassSeatEntity;
     }
 
-    public void removeCustomerFromBusinessClassSeats(Trip trip, Customer customer){
-        trip.getBookedBusinessClassSeats().remove(customer);
+    public List<BusinessClassSeatEntity> createBusinessClassSeatEntitys(List<BusinessClassSeat> businessClassSeats) {
+        List<BusinessClassSeatEntity> businessClassSeatEntitys = new ArrayList<>();
+        for (BusinessClassSeat businessClassSeat : businessClassSeats) {
+            businessClassSeatEntitys.add(takeSeatMakeBusinessClassSeatEntity(businessClassSeat));
+        }
+        return businessClassSeatEntitys;
     }
 
-    @Override
-    public void createTrip(Trip trip) {
 
+    public List<EconomyClassSeatEntity> createEconomyClassSeatEntitys(List<EconomyClassSeat> economyClassSeats) {
+        List<EconomyClassSeatEntity> economyClassSeatEntitys = new ArrayList<>();
+        for (EconomyClassSeat economyClassSeat : economyClassSeats) {
+            economyClassSeatEntitys.add(takeSeatMakeEconomyClassSeatEntity(economyClassSeat));
+        }
+        return economyClassSeatEntitys;
     }
+
 }
