@@ -17,7 +17,7 @@ public class TripServiceImpl implements TripService {
     public TripServiceImpl(TripDao tripDao) {
         this.tripDao = Required.notNull(tripDao, "tripDao");
     }
-    
+
  */
 
 
