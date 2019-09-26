@@ -1,5 +1,6 @@
 package se.mskogfeldt.service.impl;
 
+import se.mskogfeldt.dao.TripDao;
 import se.mskogfeldt.domain.*;
 import se.mskogfeldt.entity.BusinessClassSeatEntity;
 import se.mskogfeldt.entity.EconomyClassSeatEntity;
@@ -9,30 +10,38 @@ import se.mskogfeldt.service.TripService;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class TripServiceImpl implements TripService {
 
-/*
+
+    private TripDao tripDao;
+
     public TripServiceImpl(TripDao tripDao) {
-        this.tripDao = Required.notNull(tripDao, "tripDao");
+        this.tripDao = Objects.requireNonNull(tripDao,"tripDao cannot be null");
     }
-
- */
-
 
     public void addCustomerToMapOfFood(Trip trip, Customer customer, List<Food> food) {
         trip.getBookedFood().put(customer, food);
     }
 
-    public List<Food> addFoodToList(Food food, List<Food> list) {
+    public List<Food> addFoodToListReturnList(Food food, List<Food> list) {
         list.add(food);
         return list;
     }
 
-    public List<Food> removeFoodFromList(Food food, List<Food> list) {
+    public List<Food> removeFoodFromListReturnList(Food food, List<Food> list) {
         list.add(food);
         return list;
+    }
+
+    public void addFoodToList(List<Food> food, Food newFood){
+        food.add(newFood);
+    }
+
+    public void removeFoodFromList(List<Food> food, Food oldFood){
+        food.remove(oldFood);
     }
 
     public Collection<BusinessClassSeatEntity> readAllAvalibleBusinessClassSeats(TripEntity tripEntity) {
@@ -103,5 +112,24 @@ public class TripServiceImpl implements TripService {
         }
         return economyClassSeatEntitys;
     }
+
+    public BusinessClassSeat removeBusinessClassSeatFromList(List<BusinessClassSeat> businessClassseats, BusinessClassSeat businessClassSeat){
+        businessClassseats.remove(businessClassSeat);
+        return businessClassSeat;
+    }
+
+    public void addBusinessClassSeatToList(List<BusinessClassSeat> businessClassseats, BusinessClassSeat businessClassSeat){
+        businessClassseats.add(businessClassSeat);
+    }
+
+    public EconomyClassSeat removeEconomyClassSeatFromList(List<EconomyClassSeat> economyClassSeats, EconomyClassSeat economyClassSeat){
+        economyClassSeats.remove(economyClassSeat);
+        return economyClassSeat;
+    }
+
+    public void addEconomyClassSeatToList(List<EconomyClassSeat> economyClassSeats, EconomyClassSeat economyClassSeat){
+        economyClassSeats.add(economyClassSeat);
+    }
+
 
 }

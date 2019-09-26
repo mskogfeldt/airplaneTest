@@ -8,7 +8,7 @@ public class Trip {
 
     private String id;
 
-    private boolean isDone;
+    private boolean isDone = false;
 
     private Airplane airplane;
     private AirLine airLine;
@@ -56,6 +56,10 @@ public class Trip {
 
     public String getId() {
         return id;
+    }
+
+    public boolean getIsDone(){
+        return isDone;
     }
 
     public String setId() {
@@ -114,6 +118,8 @@ public class Trip {
 
     public static class Builder {
         private String id;
+        private boolean isDone;
+
         private AirLine airLine;
         private Airplane airplane;
 
@@ -133,6 +139,11 @@ public class Trip {
 
         public Builder withId(String id){
             this.id = id;
+            return this;
+        }
+
+        public Builder withIsDone(boolean isDone){
+            this.isDone = isDone;
             return this;
         }
 

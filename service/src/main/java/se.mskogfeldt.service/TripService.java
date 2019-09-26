@@ -7,5 +7,5 @@ public interface TripService  {
     String DEFAULT_BEAN_NAME = "tripService";
 
 
-    void createTrip(Trip trip);
+   // void createTrip(Trip trip);
 }

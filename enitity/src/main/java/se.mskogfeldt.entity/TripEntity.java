@@ -9,6 +9,8 @@ import java.util.Objects;
 public class TripEntity {
 
     private String id;
+    private boolean isDone;
+
     private AirLineEntity airLineEntity;
     private AirplaneEntity airplaneEntity;
 
@@ -29,6 +31,8 @@ public class TripEntity {
 
     public TripEntity(Builder builder) {
         this.id = Objects.requireNonNull(builder.id);
+        this.isDone = Objects.requireNonNull(builder.isDone);
+
         this.airLineEntity = Objects.requireNonNull(builder.airLineEntity);
         this.airplaneEntity = Objects.requireNonNull(builder.airplaneEntity);
 
@@ -48,6 +52,10 @@ public class TripEntity {
 
     public String getId(){
         return id;
+    }
+
+    public boolean getIsDone(){
+        return isDone;
     }
 
     public AirLineEntity getAirLineEntity() {
@@ -176,6 +184,11 @@ public class TripEntity {
 
         public Builder withId(String id){
             this.id = id;
+            return this;
+        }
+
+        public Builder withIsDone(boolean isDone){
+            this.isDone = isDone;
             return this;
         }
 
