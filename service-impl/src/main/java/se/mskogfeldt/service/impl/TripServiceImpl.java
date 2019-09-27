@@ -119,6 +119,15 @@ public class TripServiceImpl implements TripService {
         businessClassseats.add(businessClassSeat);
     }
 
+    public void addBusinessClassSeatToMap(BusinessClassSeat seat, Customer customer, Trip trip){
+        trip.getBookedBusinessClassSeats().put(seat.getSeatNumber(), customer);
+    }
+
+    public void customerBookingBusinessSeat(BusinessClassSeat businessClassSeat, Trip trip, Customer customer){
+        BusinessClassSeat businessClassSeatX = removeBusinessClassSeatFromList(trip.getAvalibleBusinessClassSeats(), businessClassSeat);
+        addBusinessClassSeatToMap(businessClassSeatX, customer, trip);
+    }
+
     public EconomyClassSeat removeEconomyClassSeatFromList(List<EconomyClassSeat> economyClassSeats, EconomyClassSeat economyClassSeat){
         economyClassSeats.remove(economyClassSeat);
         return economyClassSeat;
@@ -132,21 +141,9 @@ public class TripServiceImpl implements TripService {
         trip.getBookedEconomyClassSeats().put(seat.getSeatNumber(), customer);
     }
 
-    /*
-     @Override
-    public void create(Account account) {
-        if(accounts.containsKey(account.getId())){
-            throw new RuntimeException("Account already exists");
-        }
-        accounts.put(account.getId(),account);
-    }
-     */
-
     public void customerBookingEconomySeat(EconomyClassSeat economyClassSeat, Trip trip, Customer customer){
         EconomyClassSeat economyClassSeatX = removeEconomyClassSeatFromList(trip.getAvalibleEconomyClassSeats(), economyClassSeat);
         addEconomyClassSeatToMap(economyClassSeatX, customer, trip);
     }
-
-    //
 
 }
