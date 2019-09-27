@@ -7,10 +7,7 @@ import se.mskogfeldt.entity.EconomyClassSeatEntity;
 import se.mskogfeldt.entity.TripEntity;
 import se.mskogfeldt.service.TripService;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TripServiceImpl implements TripService {
@@ -131,5 +128,25 @@ public class TripServiceImpl implements TripService {
         economyClassSeats.add(economyClassSeat);
     }
 
+    public void addEconomyClassSeatToMap(EconomyClassSeat seat, Customer customer, Trip trip){
+        trip.getBookedEconomyClassSeats().put(seat.getSeatNumber(), customer);
+    }
+
+    /*
+     @Override
+    public void create(Account account) {
+        if(accounts.containsKey(account.getId())){
+            throw new RuntimeException("Account already exists");
+        }
+        accounts.put(account.getId(),account);
+    }
+     */
+
+    public void customerBookingEconomySeat(EconomyClassSeat economyClassSeat, Trip trip, Customer customer){
+        EconomyClassSeat economyClassSeatX = removeEconomyClassSeatFromList(trip.getAvalibleEconomyClassSeats(), economyClassSeat);
+        addEconomyClassSeatToMap(economyClassSeatX, customer, trip);
+    }
+
+    //
 
 }
