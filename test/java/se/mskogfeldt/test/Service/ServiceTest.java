@@ -1,15 +1,29 @@
 package se.mskogfeldt.test.Service;
 
+import org.junit.Assert;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+import se.mskogfeldt.dao.AirLineDao;
+import se.mskogfeldt.domain.AirLine;
+import se.mskogfeldt.domain.Airplane;
+import se.mskogfeldt.domain.BusinessClassSeat;
+import se.mskogfeldt.domain.EconomyClassSeat;
+import se.mskogfeldt.service.AirLineService;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ServiceTest {
 
     @Test
     public void testCreateAirLineFromService(){
-        ApplicationContext applicationContext = new GenericXmlApplicationContext("dao-impl.xml", "service-impl.xml");
+        ApplicationContext applicationContext = new GenericXmlApplicationContext("dao-impl.xml", "service.xml");
         AirLineDao airLineDao = applicationContext.getBean(AirLineDao.class);
         AirLineService airLineService = applicationContext.getBean(AirLineService.class);
 
             List<BusinessClassSeat> businessClassSeats = new ArrayList<>();
-            List<EconomyClassSeat>  economyClassSeats = new ArrayList<>();
+            List<EconomyClassSeat> economyClassSeats = new ArrayList<>();
 
             BusinessClassSeat businessClassSeat1 = BusinessClassSeat.builder()
                     .withSeatNumber(1).build();
@@ -29,7 +43,7 @@ public class ServiceTest {
                     .withTreasury(50000)
                     .withFleat(fleat1).build();
 
-            airLineService.createAirLine(airline);
+            airLineService.createAirLine(airLine);
 
 
             Assert.assertEquals(1, airLineDao.readAll().size());
@@ -52,4 +66,4 @@ public class ServiceTest {
     }
  */
 
-}
+

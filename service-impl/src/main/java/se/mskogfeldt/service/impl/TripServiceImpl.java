@@ -4,6 +4,7 @@ import se.mskogfeldt.dao.TripDao;
 import se.mskogfeldt.domain.*;
 import se.mskogfeldt.entity.BusinessClassSeatEntity;
 import se.mskogfeldt.entity.EconomyClassSeatEntity;
+import se.mskogfeldt.entity.FoodEntity;
 import se.mskogfeldt.entity.TripEntity;
 import se.mskogfeldt.service.TripService;
 
@@ -27,6 +28,39 @@ public class TripServiceImpl implements TripService {
         list.add(food);
         return list;
     }
+
+    public Optional<TripEntity> readTripEntity(String id){
+        return tripDao.readTripEntity(id);
+    }
+
+    public Collection<FoodEntity> getOrderedFood(Trip trip, Customer customer){
+        Optional<TripEntity> trip1 = readTripEntity(trip.getId());
+
+    }
+ /*
+ trip
+
+    public Collection<FoodEntity> readFromBookedFood(Customer customer, Collection<Foodentity> bookedFood){
+            return accounts.values()
+                    .stream()
+                    .filter(customer -> customer.getSsn().equals() limit)
+                    .collect(Collectors.toSet());
+        }
+    }
+
+    public Optional<Account> read(Long id) {
+        return Optional.ofNullable(accounts.get(id));
+    }
+
+    @Override
+    public Collection<Account> readAccountsWithBalanceOver(Double limit) {
+        return accounts.values()
+                .stream()
+                .filter(account -> account.getBalance() > limit)
+                .collect(Collectors.toSet());
+    }
+
+  */
 
     public List<Food> removeFoodFromListReturnList(Food food, List<Food> list) {
         list.add(food);

@@ -17,7 +17,7 @@ public class TripEntity {
     private List<FoodEntity> businessClassMenuEntity;
     private List<FoodEntity> economyClassMenuEntity;
 
-    private Map<CustomerEntity, FoodEntity> bookedFoodEntity;
+    private Map<CustomerEntity, List<FoodEntity>> bookedFoodEntity;
 
     private List<BusinessClassSeatEntity> avalibleBusinessClassSeatEntitys;
     private Map<Integer, CustomerEntity> bookedBusinessClassSeatEntitys;
@@ -91,11 +91,11 @@ public class TripEntity {
         this.economyClassMenuEntity = economyClassMenuEntity;
     }
 
-    public Map<CustomerEntity, FoodEntity> getBookedFoodEntity() {
+    public Map<CustomerEntity, List<FoodEntity>> getBookedFoodEntity() {
         return bookedFoodEntity;
     }
 
-    public void setBookedFoodEntity(Map<CustomerEntity, FoodEntity> bookedFoodEntity) {
+    public void setBookedFoodEntity(Map<CustomerEntity, List<FoodEntity>> bookedFoodEntity) {
         this.bookedFoodEntity = bookedFoodEntity;
     }
 
@@ -155,6 +155,25 @@ public class TripEntity {
         this.avalibleBusinessClassSeatEntitys = avalibleBusinessClassSeatEntitys;
     }
 
+    @Override
+    public String toString() {
+        return "TripEntity{" +
+                "id='" + id + '\'' +
+                ", isDone=" + isDone +
+                ", airLineEntity=" + airLineEntity +
+                ", airplaneEntity=" + airplaneEntity +
+                ", businessClassMenuEntity=" + businessClassMenuEntity +
+                ", economyClassMenuEntity=" + economyClassMenuEntity +
+                ", bookedFoodEntity=" + bookedFoodEntity +
+                ", avalibleBusinessClassSeatEntitys=" + avalibleBusinessClassSeatEntitys +
+                ", bookedBusinessClassSeatEntitys=" + bookedBusinessClassSeatEntitys +
+                ", avalibleEconomyClassSeatEntitys=" + avalibleEconomyClassSeatEntitys +
+                ", bookedEconomyClassSeatEntitys=" + bookedEconomyClassSeatEntitys +
+                ", costForBusinessClassSeat=" + costForBusinessClassSeat +
+                ", costForEconomyClassSeat=" + costForEconomyClassSeat +
+                '}';
+    }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -171,7 +190,7 @@ public class TripEntity {
         private List<FoodEntity> businessClassMenuEntity;
         private List<FoodEntity> economyClassMenuEntity;
 
-        private Map<CustomerEntity, FoodEntity> bookedFood;
+        private Map<CustomerEntity, List<FoodEntity>> bookedFood;
 
         private List<BusinessClassSeatEntity> avalibleBusinessClassSeatEntitys;
         private Map<Integer, CustomerEntity> bookedBusinessClassSeatEntitys;
@@ -213,7 +232,7 @@ public class TripEntity {
             return this;
         }
 
-        public Builder withBookedFood(Map<CustomerEntity, FoodEntity> bookedFood) {
+        public Builder withBookedFood(Map<CustomerEntity, List<FoodEntity>> bookedFood) {
             this.bookedFood = bookedFood;
             return this;
         }

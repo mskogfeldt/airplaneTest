@@ -6,12 +6,13 @@ import se.mskogfeldt.entity.AirLineEntity;
 import se.mskogfeldt.entity.AirplaneEntity;
 import se.mskogfeldt.entity.BusinessClassSeatEntity;
 import se.mskogfeldt.entity.EconomyClassSeatEntity;
+import se.mskogfeldt.service.AirLineService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class AirLineServiceImpl {
+public class AirLineServiceImpl implements AirLineService {
 
     private AirLineDao airLineDao;
 
@@ -34,7 +35,7 @@ public class AirLineServiceImpl {
 
     public BusinessClassSeatEntity createBusinessClassSeatEntity(BusinessClassSeat businessClassSeat) {
         BusinessClassSeatEntity businessClassSeatEntity = BusinessClassSeatEntity.builder()
-                .withSeatnumber(businessClassSeat.getSeatNumber()).build();
+                .withSeatNumber(businessClassSeat.getSeatNumber()).build();
         return businessClassSeatEntity;
     }
 
@@ -49,7 +50,7 @@ public class AirLineServiceImpl {
 
     public EconomyClassSeatEntity createEconomyClassSeatEntity(EconomyClassSeat economyClassSeat) {
         EconomyClassSeatEntity economyClassSeatEntity = EconomyClassSeatEntity.builder()
-                .withSeatnumber(economyClassSeat.getSeatNumber()).build();
+                .withSeatNumber(economyClassSeat.getSeatNumber()).build();
         return economyClassSeatEntity;
     }
 

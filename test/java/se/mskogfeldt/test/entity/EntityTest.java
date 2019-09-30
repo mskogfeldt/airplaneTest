@@ -17,9 +17,9 @@ public class EntityTest {
         List<EconomyClassSeatEntity> economyClassSeatEntities = new ArrayList<>();
 
         BusinessClassSeatEntity businessClassSeatEntity1 = BusinessClassSeatEntity.builder()
-                .withSeatnumber(1).build();
+                .withSeatNumber(1).build();
         EconomyClassSeatEntity economyClassSeatEntity1 = EconomyClassSeatEntity.builder()
-                .withSeatnumber(1).build();
+                .withSeatNumber(1).build();
         businessClassSeatEntities.add(businessClassSeatEntity1);
         economyClassSeatEntities.add(economyClassSeatEntity1);
 
@@ -58,9 +58,9 @@ public class EntityTest {
         List<BusinessClassSeatEntity> businessClassSeatEntities = new ArrayList<>();
         List<EconomyClassSeatEntity> economyClassSeatEntities = new ArrayList<>();
         BusinessClassSeatEntity businessClassSeatEntity1 = BusinessClassSeatEntity.builder()
-                .withSeatnumber(1).build();
+                .withSeatNumber(1).build();
         EconomyClassSeatEntity economyClassSeatEntity1 = EconomyClassSeatEntity.builder()
-                .withSeatnumber(1).build();
+                .withSeatNumber(1).build();
         businessClassSeatEntities.add(businessClassSeatEntity1);
         economyClassSeatEntities.add(economyClassSeatEntity1);
 
@@ -77,10 +77,10 @@ public class EntityTest {
         List<EconomyClassSeatEntity> economyClassSeatEntities = new ArrayList<>();
 
         BusinessClassSeatEntity businessClassSeatEntity1 = BusinessClassSeatEntity.builder()
-                .withSeatnumber(1).build();
+                .withSeatNumber(1).build();
 
         EconomyClassSeatEntity economyClassSeatEntity1 = EconomyClassSeatEntity.builder()
-                .withSeatnumber(1).build();
+                .withSeatNumber(1).build();
 
         businessClassSeatEntities.add(businessClassSeatEntity1);
         economyClassSeatEntities.add(economyClassSeatEntity1);
