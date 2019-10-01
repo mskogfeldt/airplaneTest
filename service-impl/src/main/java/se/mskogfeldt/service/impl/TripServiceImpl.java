@@ -33,8 +33,12 @@ public class TripServiceImpl implements TripService {
         return tripDao.readTripEntity(id);
     }
 
-    public Collection<FoodEntity> getOrderedFood(Trip trip, Customer customer){
-        Optional<TripEntity> trip1 = readTripEntity(trip.getId());
+    public List<FoodEntity> getBookedFood(Map<CustomerEntity, FoodEntity>> CustomerEntity customerEntity)
+
+    public Collection<FoodEntity> getOrderedFood(TripEntity tripEntity, Customer customer){
+       // Optional<TripEntity> trip1 = readTripEntity(trip.getId());
+        Collection<FoodEntity> getListOfFood = tripEntity.getBookedFood();
+
 
     }
  /*
