@@ -33,15 +33,15 @@ public class TripServiceImpl implements TripService {
         return tripDao.readTripEntity(id);
     }
 
-    public List<FoodEntity> getBookedFood(Map<CustomerEntity, FoodEntity>> CustomerEntity customerEntity)
-
-    public Collection<FoodEntity> getOrderedFood(TripEntity tripEntity, Customer customer){
-       // Optional<TripEntity> trip1 = readTripEntity(trip.getId());
-        Collection<FoodEntity> getListOfFood = tripEntity.getBookedFood();
-
-
-    }
+    //public List<FoodEntity> getBookedFood(Map<CustomerEntity, FoodEntity>> CustomerEntity customerEntity)
  /*
+    public Collection<FoodEntity> getOrderedFood(TripEntity tripEntity, Customer customer){
+        Optional<TripEntity> trip1 = readTripEntity(tripEntity.getId());
+        //Collection<FoodEntity> getListOfFood = tripEntity.getBookedFood();
+
++
+    }
+
  trip
 
     public Collection<FoodEntity> readFromBookedFood(Customer customer, Collection<Foodentity> bookedFood){
@@ -182,6 +182,65 @@ public class TripServiceImpl implements TripService {
     public void customerBookingEconomySeat(EconomyClassSeat economyClassSeat, Trip trip, Customer customer){
         EconomyClassSeat economyClassSeatX = removeEconomyClassSeatFromList(trip.getAvalibleEconomyClassSeats(), economyClassSeat);
         addEconomyClassSeatToMap(economyClassSeatX, customer, trip);
+    }
+
+    public TripEntity makeTripEntity(Trip trip){
+        List<FoodEntity> businessClassFood1 =
+
+
+        /*
+         Customer customer1 = Customer.builder().withFirstName("Adam").withLastName("Andersson")
+                .withSsn("12345").build();
+
+        List<BusinessClassSeat> businessClassSeats =new ArrayList<>();
+        List<EconomyClassSeat>  economyClassSeats = new ArrayList<>();
+
+        BusinessClassSeat businessClassSeat1 = BusinessClassSeat.builder()
+                .withSeatNumber(1).build();
+        EconomyClassSeat economyClassSeat1 = EconomyClassSeat.builder()
+                .withSeatNumber(1).build();
+
+        businessClassSeats.add(businessClassSeat1);
+        economyClassSeats.add(economyClassSeat1);
+
+        List<Food> bMenu = new ArrayList<>();
+        List<Food> eMenu = new ArrayList<>();
+
+        Food eal = Food.builder().withName("Eal").withCost(100).build();
+        Food banana = Food.builder().withName("Banana").withCost(200).build();
+
+        bMenu.add(banana);
+        eMenu.add(eal);
+
+        Map<Customer, List<Food>> bFood = new HashMap<>();
+        bFood.put(customer1,bMenu);
+
+        Airplane airplane =Airplane.builder().withId("12345")
+                .withBusinissClassSeats(businessClassSeats)
+                .withEconomyClassSeats(economyClassSeats).build();
+
+        List<Airplane> fleat1 = new ArrayList<>();
+        fleat1.add(airplane);
+
+        AirLine airLine = AirLine.builder().withName("Airair")
+                .withTreasury(50000)
+                .withFleat(fleat1).build();
+
+        Trip trip = Trip.builder()
+                .withAirLine(airLine)
+                .withAirplane(airplane)
+                .withBusinessClassMenu(bMenu)
+                .withEconomyClassMenu(eMenu)
+                .withBookedFood(bFood)
+                .withAvaibleBusinessClassSeats(airplane.getBusinessClassSeats())
+                .withBookedBusinessClassSeats(new HashMap<Integer, Customer>())
+                .withAvalibleEconomiClassSeats(airplane.getEconomyClassSeats())
+                .withBookedEconomiClassSeats(new HashMap<Integer, Customer>())
+                .withCostForEconomyClassSeat(5000)
+                .withCostForBusinessClassSeat(20000)
+                .build();
+        Assert.assertNotNull(trip.getCostForEconomyClassSeat());
+         */
     }
 
 }
