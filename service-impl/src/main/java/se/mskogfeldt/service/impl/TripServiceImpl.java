@@ -17,11 +17,7 @@ public class TripServiceImpl implements TripService {
     private TripDao tripDao;
 
     public TripServiceImpl(TripDao tripDao) {
-        this.tripDao = Objects.requireNonNull(tripDao,"tripDao cannot be null");
-    }
-
-    public void addCustomerToMapOfFood(Trip trip, Customer customer, List<Food> food) {
-        trip.getBookedFood().put(customer, food);
+        this.tripDao = Objects.requireNonNull(tripDao, "tripDao cannot be null");
     }
 
     public List<Food> addFoodToListReturnList(Food food, List<Food> list) {
@@ -29,7 +25,7 @@ public class TripServiceImpl implements TripService {
         return list;
     }
 
-    public Optional<TripEntity> readTripEntity(String id){
+    public Optional<TripEntity> readTripEntity(String id) {
         return tripDao.readTripEntity(id);
     }
 
@@ -66,41 +62,49 @@ public class TripServiceImpl implements TripService {
 
   */
 
+    //1
     public List<Food> removeFoodFromListReturnList(Food food, List<Food> list) {
         list.add(food);
         return list;
     }
 
-    public void addFoodToList(List<Food> food, Food newFood){
+    // 2
+    public void addFoodToList(List<Food> food, Food newFood) {
         food.add(newFood);
     }
 
-    public void removeFoodFromList(List<Food> food, Food oldFood){
+    //3
+    public void removeFoodFromList(List<Food> food, Food oldFood) {
         food.remove(oldFood);
     }
 
+    //4
     public Collection<BusinessClassSeatEntity> readAllAvalibleBusinessClassSeats(TripEntity tripEntity) {
         List<BusinessClassSeatEntity> returnCollection = tripEntity.getAvalibleBusinessClassSeatEntitys();
         return returnCollection;
     }
 
+    //5
     public Collection<EconomyClassSeatEntity> readAllAvalibleEconomyClassSeats(TripEntity tripEntity) {
         List<EconomyClassSeatEntity> returnCollection = tripEntity.getAvalibleEconomyClassSeatEntitys();
         return returnCollection;
     }
 
+    //6
     public EconomyClassSeat takeEntityMakeEconomyClassSeat(EconomyClassSeatEntity economyClassSeatEntity) {
         EconomyClassSeat economyClassSeat = EconomyClassSeat.builder()
                 .withSeatNumber(economyClassSeatEntity.getSeatNumber()).build();
         return economyClassSeat;
     }
 
+    //7
     public BusinessClassSeat takeEntityMakeBusinessClassSeat(BusinessClassSeatEntity businessClassSeatEntity) {
         BusinessClassSeat businessClassSeat = BusinessClassSeat.builder()
                 .withSeatNumber(businessClassSeatEntity.getSeatNumber()).build();
         return businessClassSeat;
     }
 
+    //8
     public List<BusinessClassSeat> createBusinessClassSeats(List<BusinessClassSeatEntity> businessClassSeatEntities) {
         List<BusinessClassSeat> businessClassSeats = new ArrayList<>();
         for (BusinessClassSeatEntity businessClassSeatEntity : businessClassSeatEntities) {
@@ -109,7 +113,7 @@ public class TripServiceImpl implements TripService {
         return businessClassSeats;
     }
 
-
+    //9
     public List<EconomyClassSeat> createEconomyClassSeats(List<EconomyClassSeatEntity> economyClassSeatEntities) {
         List<EconomyClassSeat> economyClassSeats = new ArrayList<>();
         for (EconomyClassSeatEntity economyClassSeatEntity : economyClassSeatEntities) {
@@ -118,19 +122,21 @@ public class TripServiceImpl implements TripService {
         return economyClassSeats;
     }
 
-
+    //10
     public EconomyClassSeatEntity takeSeatMakeEconomyClassSeatEntity(EconomyClassSeat economyClassSeat) {
         EconomyClassSeatEntity economyClassSeatEntity = EconomyClassSeatEntity.builder()
                 .withSeatNumber(economyClassSeat.getSeatNumber()).build();
         return economyClassSeatEntity;
     }
 
+    //11
     public BusinessClassSeatEntity takeSeatMakeBusinessClassSeatEntity(BusinessClassSeat businessClassSeat) {
         BusinessClassSeatEntity businessClassSeatEntity = BusinessClassSeatEntity.builder()
                 .withSeatNumber(businessClassSeat.getSeatNumber()).build();
         return businessClassSeatEntity;
     }
 
+    //12
     public List<BusinessClassSeatEntity> createBusinessClassSeatEntitys(List<BusinessClassSeat> businessClassSeats) {
         List<BusinessClassSeatEntity> businessClassSeatEntitys = new ArrayList<>();
         for (BusinessClassSeat businessClassSeat : businessClassSeats) {
@@ -140,6 +146,7 @@ public class TripServiceImpl implements TripService {
     }
 
 
+    //13
     public List<EconomyClassSeatEntity> createEconomyClassSeatEntitys(List<EconomyClassSeat> economyClassSeats) {
         List<EconomyClassSeatEntity> economyClassSeatEntitys = new ArrayList<>();
         for (EconomyClassSeat economyClassSeat : economyClassSeats) {
@@ -148,47 +155,110 @@ public class TripServiceImpl implements TripService {
         return economyClassSeatEntitys;
     }
 
-    public BusinessClassSeat removeBusinessClassSeatFromList(List<BusinessClassSeat> businessClassseats, BusinessClassSeat businessClassSeat){
+    //14
+    public BusinessClassSeat removeBusinessClassSeatFromList(List<BusinessClassSeat> businessClassseats, BusinessClassSeat businessClassSeat) {
         businessClassseats.remove(businessClassSeat);
         return businessClassSeat;
     }
 
-    public void addBusinessClassSeatToList(List<BusinessClassSeat> businessClassseats, BusinessClassSeat businessClassSeat){
+    //15
+    public void addBusinessClassSeatToList(List<BusinessClassSeat> businessClassseats, BusinessClassSeat businessClassSeat) {
         businessClassseats.add(businessClassSeat);
     }
 
-    public void addBusinessClassSeatToMap(BusinessClassSeat seat, Customer customer, Trip trip){
+    //16
+    public void addBusinessClassSeatToMap(BusinessClassSeat seat, Customer customer, Trip trip) {
         trip.getBookedBusinessClassSeats().put(seat.getSeatNumber(), customer);
     }
 
-    public void customerBookingBusinessSeat(BusinessClassSeat businessClassSeat, Trip trip, Customer customer){
+    //17
+    public void customerBookingBusinessSeat(BusinessClassSeat businessClassSeat, Trip trip, Customer customer) {
         BusinessClassSeat businessClassSeatX = removeBusinessClassSeatFromList(trip.getAvalibleBusinessClassSeats(), businessClassSeat);
         addBusinessClassSeatToMap(businessClassSeatX, customer, trip);
     }
 
-    public EconomyClassSeat removeEconomyClassSeatFromList(List<EconomyClassSeat> economyClassSeats, EconomyClassSeat economyClassSeat){
+    //18
+    public EconomyClassSeat removeEconomyClassSeatFromList(List<EconomyClassSeat> economyClassSeats, EconomyClassSeat economyClassSeat) {
         economyClassSeats.remove(economyClassSeat);
         return economyClassSeat;
     }
 
-    public void addEconomyClassSeatToList(List<EconomyClassSeat> economyClassSeats, EconomyClassSeat economyClassSeat){
+    //19
+    public void addEconomyClassSeatToList(List<EconomyClassSeat> economyClassSeats, EconomyClassSeat economyClassSeat) {
         economyClassSeats.add(economyClassSeat);
     }
 
-    public void addEconomyClassSeatToMap(EconomyClassSeat seat, Customer customer, Trip trip){
+    //20
+    public void addEconomyClassSeatToMap(EconomyClassSeat seat, Customer customer, Trip trip) {
         trip.getBookedEconomyClassSeats().put(seat.getSeatNumber(), customer);
     }
 
-    public void customerBookingEconomySeat(EconomyClassSeat economyClassSeat, Trip trip, Customer customer){
+    //21
+    public void customerBookingEconomySeat(EconomyClassSeat economyClassSeat, Trip trip, Customer customer) {
         EconomyClassSeat economyClassSeatX = removeEconomyClassSeatFromList(trip.getAvalibleEconomyClassSeats(), economyClassSeat);
         addEconomyClassSeatToMap(economyClassSeatX, customer, trip);
     }
 
-    public TripEntity makeTripEntity(Trip trip){
+    public FoodEntity takeFoodReturnFoodEntity(Food food) {
+        FoodEntity foodEntity = FoodEntity.builder()
+                .withCost(food.getCost())
+                .withName(food.getName())
+                .build();
+        return foodEntity;
+    }
+
+    public Food takeFoodEntityReturnFood(FoodEntity foodEntity) {
+        Food food = Food.builder()
+                .withCost(foodEntity.getCost())
+                .withName(foodEntity.getName())
+                .build();
+        return food;
+    }
+
+    public List<Food> takeFoodEntitysmakeFoods(List<FoodEntity> foodEntitys) {
+        List<Food> foods = new ArrayList<>();
+        for (FoodEntity foodEntity : foodEntitys) {
+            foods.add(takeFoodEntityReturnFood(foodEntity));
+        }
+        return foods;
+    }
+
+    public List<FoodEntity> takeFoodMakeFoodEntitys(List<Food> foods) {
+        List<FoodEntity> foodEntitys = new ArrayList<>();
+        for (Food food : foods) {
+            foodEntitys.add(takeFoodReturnFoodEntity(food));
+        }
+        return foodEntitys;
+    }
+
+    public void addCustomerToMapOfFood(Trip trip, Customer customer, List<Food> foods) {
+        trip.getBookedFood().put(customer, foods);
+    }
+ /*
+    public void putFoodEntityInMap(Customer customerEntity, List<FoodEntity> foodEntitys, TripEntity tripEntity){
+
+        if (tripEntity.getBookedFoodEntity().containsKey(customerEntity)) {
+            throw new RuntimeException("Trip already exists");
+        }
+        trips.put(tripEntity.getId(), tripEntity);
+    }
+
+
+
+
+    public void createTrip(TripEntity tripEntity) {
+        if (trips.containsKey(tripEntity.getId())) {
+            throw new RuntimeException("Trip already exists");
+        }
+        trips.put(tripEntity.getId(), tripEntity);
+    }
+
+
+    public TripEntity makeTripFromTripEntity(Trip trip){
         List<FoodEntity> businessClassFood1 =
 
 
-        /*
+
          Customer customer1 = Customer.builder().withFirstName("Adam").withLastName("Andersson")
                 .withSsn("12345").build();
 
@@ -241,6 +311,6 @@ public class TripServiceImpl implements TripService {
                 .build();
         Assert.assertNotNull(trip.getCostForEconomyClassSeat());
          */
-    }
+
 
 }
