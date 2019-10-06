@@ -168,7 +168,7 @@ public class TripServiceImpl implements TripService {
 
     //16
     public void addBusinessClassSeatToMap(BusinessClassSeat seat, Customer customer, Trip trip) {
-        trip.getBookedBusinessClassSeats().put(seat.getSeatNumber(), customer);
+        trip.getBookedBusinessClassSeats().put(customer.getSsn(), seat);
     }
 
     //17
@@ -190,7 +190,7 @@ public class TripServiceImpl implements TripService {
 
     //20
     public void addEconomyClassSeatToMap(EconomyClassSeat seat, Customer customer, Trip trip) {
-        trip.getBookedEconomyClassSeats().put(seat.getSeatNumber(), customer);
+        trip.getBookedEconomyClassSeats().put(customer.getSsn(), seat);
     }
 
     //21
@@ -232,7 +232,7 @@ public class TripServiceImpl implements TripService {
     }
 
     public void addCustomerToMapOfFood(Trip trip, Customer customer, List<Food> foods) {
-        trip.getBookedFood().put(customer, foods);
+        trip.getBookedFood().put(customer.getSsn(), foods);
     }
  /*
     public void putFoodEntityInMap(Customer customerEntity, List<FoodEntity> foodEntitys, TripEntity tripEntity){

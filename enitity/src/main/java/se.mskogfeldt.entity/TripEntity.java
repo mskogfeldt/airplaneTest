@@ -17,13 +17,13 @@ public class TripEntity {
     private List<FoodEntity> businessClassMenuEntity;
     private List<FoodEntity> economyClassMenuEntity;
 
-    private Map<CustomerEntity, List<FoodEntity>> bookedFoodEntity;
+    private Map<String, List<FoodEntity>> bookedFoodEntity;
 
     private List<BusinessClassSeatEntity> avalibleBusinessClassSeatEntitys;
-    private Map<Integer, CustomerEntity> bookedBusinessClassSeatEntitys;
+    private Map<String, BusinessClassSeatEntity> bookedBusinessClassSeatEntitys;
 
     private List<EconomyClassSeatEntity> avalibleEconomyClassSeatEntitys;
-    private Map<Integer, CustomerEntity> bookedEconomyClassSeatEntitys;
+    private Map<String, EconomyClassSeatEntity> bookedEconomyClassSeatEntitys;
 
     private int costForBusinessClassSeat;
     private int costForEconomyClassSeat;
@@ -91,11 +91,11 @@ public class TripEntity {
         this.economyClassMenuEntity = economyClassMenuEntity;
     }
 
-    public Map<CustomerEntity, List<FoodEntity>> getBookedFoodEntity() {
+    public Map<String, List<FoodEntity>> getBookedFoodEntity() {
         return bookedFoodEntity;
     }
 
-    public void setBookedFoodEntity(Map<CustomerEntity, List<FoodEntity>> bookedFoodEntity) {
+    public void setBookedFoodEntity(Map<String, List<FoodEntity>> bookedFoodEntity) {
         this.bookedFoodEntity = bookedFoodEntity;
     }
 
@@ -107,11 +107,11 @@ public class TripEntity {
         this.avalibleBusinessClassSeatEntitys = avalibleBusinessClassSeatEntitys;
     }
 
-    public Map<Integer, CustomerEntity> getBookedBusinessClassSeatEntitys() {
+    public Map<String, BusinessClassSeatEntity> getBookedBusinessClassSeatEntitys() {
         return bookedBusinessClassSeatEntitys;
     }
 
-    public void setBookedBusinessClassSeatEntitys(Map<Integer, CustomerEntity> bookedBusinessClassSeatEntitys) {
+    public void setBookedBusinessClassSeatEntitys(Map<String, BusinessClassSeatEntity> bookedBusinessClassSeatEntitys) {
         this.bookedBusinessClassSeatEntitys = bookedBusinessClassSeatEntitys;
     }
 
@@ -123,11 +123,11 @@ public class TripEntity {
         this.avalibleEconomyClassSeatEntitys = avalibleEconomyClassSeatEntitys;
     }
 
-    public Map<Integer, CustomerEntity> getBookedEconomyClassSeatEntitys() {
+    public Map<String, EconomyClassSeatEntity> getBookedEconomyClassSeatEntitys() {
         return bookedEconomyClassSeatEntitys;
     }
 
-    public void setBookedEconomyClassSeatEntitys(Map<Integer, CustomerEntity> bookedEconomyClassSeatEntitys) {
+    public void setBookedEconomyClassSeatEntitys(Map<String, EconomyClassSeatEntity> bookedEconomyClassSeatEntitys) {
         this.bookedEconomyClassSeatEntitys = bookedEconomyClassSeatEntitys;
     }
 
@@ -190,13 +190,13 @@ public class TripEntity {
         private List<FoodEntity> businessClassMenuEntity;
         private List<FoodEntity> economyClassMenuEntity;
 
-        private Map<CustomerEntity, List<FoodEntity>> bookedFood;
+        private Map<String, List<FoodEntity>> bookedFood;
 
         private List<BusinessClassSeatEntity> avalibleBusinessClassSeatEntitys;
-        private Map<Integer, CustomerEntity> bookedBusinessClassSeatEntitys;
+        private Map<String, BusinessClassSeatEntity> bookedBusinessClassSeatEntitys;
 
         private List<EconomyClassSeatEntity> avalibleEconomyClassSeatEntitys;
-        private Map<Integer, CustomerEntity> bookedEconomyClassSeatEntitys;
+        private Map<String, EconomyClassSeatEntity> bookedEconomyClassSeatEntitys;
 
         private int costForBusinessClassSeat;
         private int costForEconomyClassSeat;
@@ -232,7 +232,7 @@ public class TripEntity {
             return this;
         }
 
-        public Builder withBookedFood(Map<CustomerEntity, List<FoodEntity>> bookedFood) {
+        public Builder withBookedFood(Map<String, List<FoodEntity>> bookedFood) {
             this.bookedFood = bookedFood;
             return this;
         }
@@ -242,7 +242,7 @@ public class TripEntity {
             return this;
         }
 
-        public Builder withBookedBusinessClassSeatEntitys(Map<Integer, CustomerEntity> bookedBusinessClassSeatEntitys) {
+        public Builder withBookedBusinessClassSeatEntitys(Map<String, BusinessClassSeatEntity> bookedBusinessClassSeatEntitys) {
             this.bookedBusinessClassSeatEntitys = bookedBusinessClassSeatEntitys;
             return this;
         }
@@ -252,7 +252,7 @@ public class TripEntity {
             return this;
         }
 
-        public Builder withBookedEconomiClassSeatEntitys(Map<Integer, CustomerEntity> bookedEconomyClassSeatEntitys) {
+        public Builder withBookedEconomiClassSeatEntitys(Map<String, EconomyClassSeatEntity> bookedEconomyClassSeatEntitys) {
             this.bookedEconomyClassSeatEntitys = bookedEconomyClassSeatEntitys;
             return this;
         }

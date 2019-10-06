@@ -17,14 +17,16 @@ public class Trip {
     private List<Food> businessClassMenu;
     private List<Food> economyClassMenu;
 
-    private Map<Customer, List<Food>> bookedFood;
+    private Map<String, List<Food>> bookedFood;
 
 
     private List<BusinessClassSeat> avaibleBusinessClassSeats;
-    private Map<Integer, Customer> bookedBusinessClassSeats;
+   // private Map<Integer, Customer> bookedBusinessClassSeats;
+    private Map<String, BusinessClassSeat> bookedBusinessClassSeats;
 
     private List<EconomyClassSeat> avalibleEconomyClassSeats;
-    private Map<Integer, Customer> bookedEconomyClassSeats;
+    //private Map<Integer, Customer> bookedEconomyClassSeats;
+    private Map<String, EconomyClassSeat> bookedEconomyClassSeats;
 
     private int costForBusinessClassSeat;
     private int costForEconomyClassSeat;
@@ -78,7 +80,7 @@ public class Trip {
         return economyClassMenu;
     }
 
-    public Map<Customer, List<Food>> getBookedFood() {
+    public Map<String, List<Food>> getBookedFood() {
         return bookedFood;
     }
 
@@ -87,7 +89,7 @@ public class Trip {
         return avaibleBusinessClassSeats;
     }
 
-    public Map<Integer, Customer> getBookedBusinessClassSeats() {
+    public Map<String, BusinessClassSeat> getBookedBusinessClassSeats() {
         return bookedBusinessClassSeats;
     }
 
@@ -95,7 +97,7 @@ public class Trip {
         return avalibleEconomyClassSeats;
     }
 
-    public Map<Integer, Customer> getBookedEconomyClassSeats() {
+    public Map<String, EconomyClassSeat> getBookedEconomyClassSeats() {
         return bookedEconomyClassSeats;
     }
 
@@ -126,13 +128,13 @@ public class Trip {
         private List<Food> businessClassMenu;
         private List<Food> economyClassMenu;
 
-        private Map<Customer, List<Food>> bookedFood;
+        private Map<String, List<Food>> bookedFood;
 
         private List<BusinessClassSeat> avalibleBusinessClassSeats;
-        private Map<Integer, Customer> bookedBusinessClassSeats;
+        private Map<String, BusinessClassSeat> bookedBusinessClassSeats;
 
         private List<EconomyClassSeat> avalibleEconomyClassSeats;
-        private Map<Integer, Customer> bookedEconomyClassSeats;
+        private Map<String, EconomyClassSeat> bookedEconomyClassSeats;
 
         private int costForBusinessClassSeat;
         private int costForEconomyClassSeat;
@@ -169,7 +171,7 @@ public class Trip {
         }
 
 
-        public Builder withBookedFood(Map<Customer, List<Food>> bookedFood) {
+        public Builder withBookedFood(Map<String, List<Food>> bookedFood) {
             this.bookedFood = bookedFood;
             return this;
         }
@@ -179,7 +181,7 @@ public class Trip {
             return this;
         }
 
-        public Builder withBookedBusinessClassSeats(Map<Integer, Customer> bookedBusinessClassSeats) {
+        public Builder withBookedBusinessClassSeats(Map<String, BusinessClassSeat> bookedBusinessClassSeats) {
             this.bookedBusinessClassSeats = bookedBusinessClassSeats;
             return this;
         }
@@ -189,7 +191,7 @@ public class Trip {
             return this;
         }
 
-        public Builder withBookedEconomiClassSeats(Map<Integer, Customer> bookedEconomyClassSeats) {
+        public Builder withBookedEconomiClassSeats(Map<String, EconomyClassSeat> bookedEconomyClassSeats) {
             this.bookedEconomyClassSeats = bookedEconomyClassSeats;
             return this;
         }

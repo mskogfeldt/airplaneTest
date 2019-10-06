@@ -1,5 +1,7 @@
 package se.mskogfeldt.entity;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class CustomerEntity {
@@ -7,11 +9,13 @@ public class CustomerEntity {
     private String firstName;
     private String lastName;
     private String ssn;
+    private Map<String, TripEntity> tripEntitys;
 
     public CustomerEntity(Builder builder) {
-        this.firstName = Objects.requireNonNull(builder.firstName,"dd");
-        this.lastName = Objects.requireNonNull(builder.lastName,"fff");
-        this.ssn = Objects.requireNonNull(builder.ssn,"dd");
+        this.firstName = Objects.requireNonNull(builder.firstName,"firstname");
+        this.lastName = Objects.requireNonNull(builder.lastName,"lastname");
+        this.ssn = Objects.requireNonNull(builder.ssn,"ssn");
+        this.tripEntitys = builder.tripEntitys;
     }
 
     public String getFirstName() {
@@ -25,6 +29,8 @@ public class CustomerEntity {
     public String getSsn() {
         return ssn;
     }
+
+    public Map<String, TripEntity> getTripEntitys() {return tripEntitys;}
 
     private void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -46,6 +52,7 @@ public class CustomerEntity {
         private String firstName;
         private String lastName;
         private String ssn;
+        private Map<String, TripEntity> tripEntitys;
 
         public Builder withFirstName(String firstName) {
             this.firstName = firstName;
@@ -59,6 +66,11 @@ public class CustomerEntity {
 
         public Builder withSsn(String ssn) {
             this.ssn = ssn;
+            return this;
+        }
+
+        public Builder withTripEntitys(Map<String, TripEntity> tripEntitys){
+            this.tripEntitys = tripEntitys;
             return this;
         }
 
