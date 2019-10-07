@@ -115,9 +115,9 @@ public class EntityTest {
                 .withBusinessClassMenuEntity(bMenuEntity)
                 .withEconomyClassMenuEntity(eMenuEntity)
                 .withAvaibleBusinessClassSeatEntitys(airplaneEntity.getBusinessClassSeatEntitys())
-                .withBookedBusinessClassSeatEntitys(new HashMap<Integer, CustomerEntity>())
+                .withBookedBusinessClassSeatEntitys(new HashMap<String, BusinessClassSeatEntity>())
                 .withAvalibleEconomiClassSeatEntitys(airplaneEntity.getEconomyClassSeatEntitys())
-                .withBookedEconomiClassSeatEntitys(new HashMap<Integer, CustomerEntity>())
+                .withBookedEconomiClassSeatEntitys(new HashMap<String, EconomyClassSeatEntity>())
                 .withCostForBuisnessClassSeat(20000)
                 .withCostForEconomyClassSeat(5000)
                 .build();

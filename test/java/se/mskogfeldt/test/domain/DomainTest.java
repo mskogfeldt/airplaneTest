@@ -110,8 +110,8 @@ public class DomainTest {
         bMenu.add(banana);
         eMenu.add(eal);
 
-        Map<Customer, List<Food>> bFood = new HashMap<>();
-        bFood.put(customer1,bMenu);
+        Map<String, List<Food>> bFood = new HashMap<>();
+        bFood.put(customer1.getSsn(),bMenu);
 
         Airplane airplane =Airplane.builder().withId("12345")
                 .withBusinissClassSeats(businessClassSeats)
@@ -131,9 +131,9 @@ public class DomainTest {
                 .withEconomyClassMenu(eMenu)
                 .withBookedFood(bFood)
                 .withAvaibleBusinessClassSeats(airplane.getBusinessClassSeats())
-                .withBookedBusinessClassSeats(new HashMap<Integer, Customer>())
+                .withBookedBusinessClassSeats(new HashMap<String, BusinessClassSeat>())
                 .withAvalibleEconomiClassSeats(airplane.getEconomyClassSeats())
-                .withBookedEconomiClassSeats(new HashMap<Integer, Customer>())
+                .withBookedEconomiClassSeats(new HashMap<String, EconomyClassSeat>())
                 .withCostForEconomyClassSeat(5000)
                 .withCostForBusinessClassSeat(20000)
                 .build();

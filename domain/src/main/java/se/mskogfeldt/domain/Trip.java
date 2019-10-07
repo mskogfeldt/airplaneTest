@@ -21,11 +21,9 @@ public class Trip {
 
 
     private List<BusinessClassSeat> avaibleBusinessClassSeats;
-   // private Map<Integer, Customer> bookedBusinessClassSeats;
     private Map<String, BusinessClassSeat> bookedBusinessClassSeats;
 
     private List<EconomyClassSeat> avalibleEconomyClassSeats;
-    //private Map<Integer, Customer> bookedEconomyClassSeats;
     private Map<String, EconomyClassSeat> bookedEconomyClassSeats;
 
     private int costForBusinessClassSeat;

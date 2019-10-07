@@ -234,7 +234,45 @@ public class TripServiceImpl implements TripService {
     public void addCustomerToMapOfFood(Trip trip, Customer customer, List<Food> foods) {
         trip.getBookedFood().put(customer.getSsn(), foods);
     }
- /*
+
+    public Integer calculateFoodProfitFromList(List<FoodEntity> foodEntitys){
+        Integer profit = 0;
+        for (FoodEntity foodEntity : foodEntitys) {
+            profit += foodEntity.getCost();
+        }
+        return profit;
+    }
+
+    public Integer calculateObjectsInList(List<Objects> items){
+        int sizeOfList = items.size();
+        return sizeOfList;
+    }
+
+    public Integer calculateBusinessClassSeatsInMap(Map<String, BusinessClassSeatEntity> items){
+        int sizeOfMap = items.size();
+        return sizeOfMap;
+    }
+
+    public Integer calculateEconomyClassSeatsInMap(Map<String, EconomyClassSeatEntity> items){
+        int sizeOfMap = items.size();
+        return sizeOfMap;
+    }
+
+    public int calculateBusinessClassSeatProfit(TripEntity tripEntity){
+        int bCash = tripEntity.getCostForBusinessClassSeat()*calculateBusinessClassSeatsInMap(tripEntity.getBookedBusinessClassSeatEntitys());
+        return bCash;
+    }
+
+    public int calculateEconomyClassSeatProfit(TripEntity tripEntity){
+        int eCash = tripEntity.getCostForEconomyClassSeat()*calculateEconomyClassSeatsInMap(tripEntity.getBookedEconomyClassSeatEntitys());
+        return eCash;
+    }
+
+  /*  public Integer calculateProfitFromTrip(){
+        int profit;
+
+    }
+
     public void putFoodEntityInMap(Customer customerEntity, List<FoodEntity> foodEntitys, TripEntity tripEntity){
 
         if (tripEntity.getBookedFoodEntity().containsKey(customerEntity)) {
