@@ -243,6 +243,13 @@ public class TripServiceImpl implements TripService {
         return profit;
     }
 
+    public 
+
+    public List<FoodEntity> allBookedFood(TripEntity tripEntity){
+        List allBookedFood<FoodEntity> =
+    }
+
+
     public Integer calculateObjectsInList(List<Objects> items){
         int sizeOfList = items.size();
         return sizeOfList;
@@ -266,6 +273,11 @@ public class TripServiceImpl implements TripService {
     public int calculateEconomyClassSeatProfit(TripEntity tripEntity){
         int eCash = tripEntity.getCostForEconomyClassSeat()*calculateEconomyClassSeatsInMap(tripEntity.getBookedEconomyClassSeatEntitys());
         return eCash;
+    }
+
+    public int calculateProfitFromTrip(TripEntity tripEntity){
+        List <FoodEntity> foodEntitys = tripEntity.getBookedFoodEntity();
+        int profit = calculateFoodProfitFromList(tripEntity.getBookedFoodEntity());
     }
 
   /*  public Integer calculateProfitFromTrip(){
