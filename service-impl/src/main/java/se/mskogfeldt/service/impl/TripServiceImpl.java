@@ -243,7 +243,12 @@ public class TripServiceImpl implements TripService {
         return profit;
     }
 
-    public 
+    public void loopMapLoopItsLists(Map<String, FoodEntity> foodEntitys){
+        for (FoodEntity foodEntity : foodEntitys) {
+
+        }
+        return ;
+    }
 
     public List<FoodEntity> allBookedFood(TripEntity tripEntity){
         List allBookedFood<FoodEntity> =
@@ -274,13 +279,13 @@ public class TripServiceImpl implements TripService {
         int eCash = tripEntity.getCostForEconomyClassSeat()*calculateEconomyClassSeatsInMap(tripEntity.getBookedEconomyClassSeatEntitys());
         return eCash;
     }
-
+ /*
     public int calculateProfitFromTrip(TripEntity tripEntity){
         List <FoodEntity> foodEntitys = tripEntity.getBookedFoodEntity();
         int profit = calculateFoodProfitFromList(tripEntity.getBookedFoodEntity());
     }
 
-  /*  public Integer calculateProfitFromTrip(){
+   public Integer calculateProfitFromTrip(){
         int profit;
 
     }
