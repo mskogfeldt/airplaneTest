@@ -280,6 +280,35 @@ public class TripServiceImpl implements TripService {
         return eCash;
     }
  /*
+
+    public void create(Account account) {
+        if(accounts.containsKey(account.getId())){
+            throw new RuntimeException("Account already exists");
+        }
+        accounts.put(account.getId(),account);
+    }
+
+    @Override
+    public Optional<Account> read(Long id) {
+        return Optional.ofNullable(accounts.get(id));
+    }
+
+    @Override
+    public Collection<Account> readAccountsWithBalanceOver(Double limit) {
+        return accounts.values()
+                .stream()
+                .filter(account -> account.getBalance() > limit)
+                .collect(Collectors.toSet());
+    }
+
+
+    @Override
+    public Collection<FoodEntity> readAllFood(Map<String, FoodEntity> bookedFood) {
+        return bookedFood.values()
+                .stream()
+                .collect(Collectors.toSet());
+    }
+
     public int calculateProfitFromTrip(TripEntity tripEntity){
         List <FoodEntity> foodEntitys = tripEntity.getBookedFoodEntity();
         int profit = calculateFoodProfitFromList(tripEntity.getBookedFoodEntity());
