@@ -46,16 +46,7 @@ public void create(Account account) {
         */
     }
 
-    public List returnBookdedFood(Map<String, List<String>>data,Integer i){
-        if(data.containsKey(i))
-            return data.get(i).stream().collect(Collectors.toList());
-        return null;
-    }public void delitingValues(Map<Integer, List<String>>data,Integer i,List<String> values){
-        System.out.println("the value of"+data.get(i)+"is deleted");
-        data.remove(i);
-        data.put(i,values);
-        System.out.println("the new map value"+data.get(i));}
-}
+
 
 }
 
