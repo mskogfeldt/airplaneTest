@@ -17,6 +17,8 @@ public class AirLineDaoImpl implements AirLineDao {
     private Map<String, AirLineEntity> airLines = new HashMap<>();
 
 
+
+
    /* public AirLineDaoImpl(AirLineDao airLineDao){
         this.airLineDao = Objects.requireNonNull(airLineDao, "airLineDao cannot be null");
     }
@@ -39,12 +41,10 @@ public class AirLineDaoImpl implements AirLineDao {
         airLines.remove(name);
     }
 
-    public void updateTreasury(String name) {
 
-    }
-
-    public void updateName(String name) {
-
+    public void update(String name, AirLineEntity airLineEntity) {
+        delete(name);
+        create(airLineEntity);
     }
 
 

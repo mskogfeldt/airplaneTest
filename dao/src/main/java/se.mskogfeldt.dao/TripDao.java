@@ -6,7 +6,5 @@ import java.util.Optional;
 
 public interface TripDao {
 
-    void createTrip(TripEntity tripEntity);
 
-    Optional<TripEntity> readTripEntity(String id);
 }

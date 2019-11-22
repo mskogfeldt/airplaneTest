@@ -9,10 +9,11 @@ import java.util.Objects;
 public class TripEntity {
 
     private String id;
-    private boolean isDone;
 
     private AirLineEntity airLineEntity;
     private AirplaneEntity airplaneEntity;
+
+    private String destination;
 
     private List<FoodEntity> businessClassMenuEntity;
     private List<FoodEntity> economyClassMenuEntity;
@@ -31,10 +32,12 @@ public class TripEntity {
 
     public TripEntity(Builder builder) {
         this.id = Objects.requireNonNull(builder.id);
-        this.isDone = Objects.requireNonNull(builder.isDone);
+       // this.isDone = Objects.requireNonNull(builder.isDone);
 
         this.airLineEntity = Objects.requireNonNull(builder.airLineEntity);
         this.airplaneEntity = Objects.requireNonNull(builder.airplaneEntity);
+
+        this.destination = Objects.requireNonNull(builder.destination, "destination");
 
         this.businessClassMenuEntity = Objects.requireNonNull(builder.businessClassMenuEntity);
         this.economyClassMenuEntity = Objects.requireNonNull(builder.economyClassMenuEntity);
@@ -54,10 +57,6 @@ public class TripEntity {
         return id;
     }
 
-    public boolean getIsDone(){
-        return isDone;
-    }
-
     public AirLineEntity getAirLineEntity() {
         return airLineEntity;
     }
@@ -74,6 +73,10 @@ public class TripEntity {
     public void setAirplaneEntity(AirplaneEntity airplaneEntity) {
         this.airplaneEntity = airplaneEntity;
     }
+
+    public String getDestination() { return destination; }
+
+    public void setDestination(String destination) {this.destination = destination; }
 
     public List<FoodEntity> getBusinessClassMenuEntity() {
         return businessClassMenuEntity;
@@ -155,24 +158,6 @@ public class TripEntity {
         this.avalibleBusinessClassSeatEntitys = avalibleBusinessClassSeatEntitys;
     }
 
-    @Override
-    public String toString() {
-        return "TripEntity{" +
-                "id='" + id + '\'' +
-                ", isDone=" + isDone +
-                ", airLineEntity=" + airLineEntity +
-                ", airplaneEntity=" + airplaneEntity +
-                ", businessClassMenuEntity=" + businessClassMenuEntity +
-                ", economyClassMenuEntity=" + economyClassMenuEntity +
-                ", bookedFoodEntity=" + bookedFoodEntity +
-                ", avalibleBusinessClassSeatEntitys=" + avalibleBusinessClassSeatEntitys +
-                ", bookedBusinessClassSeatEntitys=" + bookedBusinessClassSeatEntitys +
-                ", avalibleEconomyClassSeatEntitys=" + avalibleEconomyClassSeatEntitys +
-                ", bookedEconomyClassSeatEntitys=" + bookedEconomyClassSeatEntitys +
-                ", costForBusinessClassSeat=" + costForBusinessClassSeat +
-                ", costForEconomyClassSeat=" + costForEconomyClassSeat +
-                '}';
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -182,10 +167,12 @@ public class TripEntity {
 
         private String id;
 
-        private boolean isDone;
+       // private boolean isDone;
 
         private AirplaneEntity airplaneEntity;
         private AirLineEntity airLineEntity;
+
+        private String destination;
 
         private List<FoodEntity> businessClassMenuEntity;
         private List<FoodEntity> economyClassMenuEntity;
@@ -206,10 +193,6 @@ public class TripEntity {
             return this;
         }
 
-        public Builder withIsDone(boolean isDone){
-            this.isDone = isDone;
-            return this;
-        }
 
         public Builder withAirLineEntity(AirLineEntity airLineEntity) {
             this.airLineEntity = airLineEntity;
@@ -219,6 +202,11 @@ public class TripEntity {
 
         public Builder withAirplaneEntity(AirplaneEntity airplaneEntity) {
             this.airplaneEntity = airplaneEntity;
+            return this;
+        }
+
+        public Builder withDerstination(String destination){
+            this.destination = destination;
             return this;
         }
 
@@ -247,12 +235,12 @@ public class TripEntity {
             return this;
         }
 
-        public Builder withAvalibleEconomiClassSeatEntitys(List<EconomyClassSeatEntity> avalibleEconomyClassSeatEntitys) {
+        public Builder withAvalibleEconomyClassSeatEntitys(List<EconomyClassSeatEntity> avalibleEconomyClassSeatEntitys) {
             this.avalibleEconomyClassSeatEntitys = avalibleEconomyClassSeatEntitys;
             return this;
         }
 
-        public Builder withBookedEconomiClassSeatEntitys(Map<String, EconomyClassSeatEntity> bookedEconomyClassSeatEntitys) {
+        public Builder withBookedEconomyClassSeatEntitys(Map<String, EconomyClassSeatEntity> bookedEconomyClassSeatEntitys) {
             this.bookedEconomyClassSeatEntitys = bookedEconomyClassSeatEntitys;
             return this;
         }

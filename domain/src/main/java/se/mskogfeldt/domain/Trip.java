@@ -8,10 +8,12 @@ public class Trip {
 
     private String id;
 
-    private boolean isDone = false;
+    //private boolean isDone = false;
 
     private Airplane airplane;
     private AirLine airLine;
+
+    private String destination;
 
 
     private List<Food> businessClassMenu;
@@ -34,6 +36,8 @@ public class Trip {
 
         this.id = Objects.requireNonNull(builder.id);
         this.airLine = Objects.requireNonNull(builder.airLine);
+
+        this.destination = Objects.requireNonNull(builder.destination, "destination");
 
 
         this.airplane = Objects.requireNonNull(builder.airplane);
@@ -58,7 +62,7 @@ public class Trip {
         return id;
     }
 
-    public boolean getIsDone(){
+  /*  public boolean getIsDone(){
         return isDone;
     }
 
@@ -66,9 +70,13 @@ public class Trip {
         return id;
     }
 
+   */
+
     public Airplane getAirplane() {
         return airplane;
     }
+
+    public String getDestination() { return destination; }
 
     public List<Food> getBusinessClassMenu() {
         return businessClassMenu;
@@ -118,10 +126,12 @@ public class Trip {
 
     public static class Builder {
         private String id;
-        private boolean isDone;
+        //private boolean isDone;
 
         private AirLine airLine;
         private Airplane airplane;
+
+        private String destination;
 
         private List<Food> businessClassMenu;
         private List<Food> economyClassMenu;
@@ -142,10 +152,12 @@ public class Trip {
             return this;
         }
 
-        public Builder withIsDone(boolean isDone){
+       /* public Builder withIsDone(boolean isDone){
             this.isDone = isDone;
             return this;
         }
+
+        */
 
         public Builder withAirLine(AirLine airLine) {
             this.airLine = airLine;
@@ -155,6 +167,11 @@ public class Trip {
 
         public Builder withAirplane(Airplane airplane) {
             this.airplane = airplane;
+            return this;
+        }
+
+        public Builder withDestination(String destination){
+            this.destination = destination;
             return this;
         }
 
