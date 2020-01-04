@@ -14,15 +14,15 @@ public class AirplaneDaoImpl implements AirplaneDao {
 
 
 
- public void createNewAirplane(AirplaneEntity airplaneEntity){
+ public void create(AirplaneEntity airplaneEntity){
         if (airplaneEnteties.containsKey(airplaneEntity.getId())) {
             throw new RuntimeException("Plane already exists");
         }
      airplaneEnteties.put(airplaneEntity.getId(), airplaneEntity);
     }
 
-    public Optional<AirplaneEntity> read(String id) {
-        return Optional.ofNullable(airplaneEnteties.get(id));
+    public Optional<AirplaneEntity> read(String ssn) {
+        return Optional.ofNullable(airplaneEnteties.get(ssn));
     }
 
 

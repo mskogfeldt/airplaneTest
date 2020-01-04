@@ -15,17 +15,13 @@ public class CustomerDaoImpl implements CustomerDao {
    // private final CustomerDao customerDao;
     private Map<String, CustomerEntity> customers = new HashMap<>();
 
-   /* public CustomerDaoImpl(CustomerDao customerDao){
-        this.customerDao = Objects.requireNonNull(customerDao, "customerDao cannot be null");
-    }
-*/
-    public Map<String, CustomerEntity> getCustomers() {
-        return customers;
-    }
 
-    public void setCustomers(Map<String, CustomerEntity> customers) {
-        this.customers = customers;
-    }
+  //  public Map<String, CustomerEntity> getCustomers() {
+  //      return customers;}
+
+    //public void setCustomers(Map<String, CustomerEntity> customers) {
+  //      this.customers = customers;
+   // }
 
 
     public void create(CustomerEntity customerEntity) {
@@ -40,6 +36,12 @@ public class CustomerDaoImpl implements CustomerDao {
 
     }
 
+    public void delete(String id){
+        if (!customers.containsKey(id)){
+            throw  new RuntimeException("Cannot find Airplane with this ID");
+        }
+        customers.remove(id);
+    }
 
 
 }

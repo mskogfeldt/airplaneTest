@@ -10,4 +10,6 @@ public interface CustomerDao {
 
     Collection<CustomerEntity> read(final String id);
 
+    void delete(String id);
+
 }

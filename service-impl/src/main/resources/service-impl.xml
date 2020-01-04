@@ -11,7 +11,9 @@
     <bean id ="customerService" class="se.mskogfeldt.service.impl.CustomerServiceImpl">
         <constructor-arg name="customerDao" ref="customerDao"/>
     </bean>
+
     <bean id ="tripService" class="se.mskogfeldt.service.impl.TripServiceImpl">
         <constructor-arg name="tripDao" ref="tripDao"/>
     </bean>
+
 </beans>

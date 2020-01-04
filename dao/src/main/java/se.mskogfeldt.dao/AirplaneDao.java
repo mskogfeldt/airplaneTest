@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface AirplaneDao {
 
-    void createNewAirplane(AirplaneEntity airplaneEntity);
+    void create(AirplaneEntity airplaneEntity);
 
     Optional<AirplaneEntity> read(String id);
 

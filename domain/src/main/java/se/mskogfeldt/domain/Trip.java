@@ -8,8 +8,6 @@ public class Trip {
 
     private String id;
 
-    //private boolean isDone = false;
-
     private Airplane airplane;
     private AirLine airLine;
 
@@ -30,6 +28,7 @@ public class Trip {
 
     private int costForBusinessClassSeat;
     private int costForEconomyClassSeat;
+    private int totalIncomeFromTrip;
 
 
     public Trip(Builder builder) {
@@ -56,21 +55,13 @@ public class Trip {
         this.costForBusinessClassSeat = Objects.requireNonNull(builder.costForBusinessClassSeat);
         this.costForEconomyClassSeat = Objects.requireNonNull(builder.costForEconomyClassSeat);
 
+        this.totalIncomeFromTrip =builder.totalIncomeFromTrip;
+
     }
 
     public String getId() {
         return id;
     }
-
-  /*  public boolean getIsDone(){
-        return isDone;
-    }
-
-    public String setId() {
-        return id;
-    }
-
-   */
 
     public Airplane getAirplane() {
         return airplane;
@@ -119,6 +110,9 @@ public class Trip {
         return airLine;
     }
 
+    public int getTotalIncomeFromTrip() { return totalIncomeFromTrip; }
+
+
 
     public static Builder builder() {
         return new Builder();
@@ -146,18 +140,13 @@ public class Trip {
 
         private int costForBusinessClassSeat;
         private int costForEconomyClassSeat;
+        private int totalIncomeFromTrip;
 
         public Builder withId(String id){
             this.id = id;
             return this;
         }
 
-       /* public Builder withIsDone(boolean isDone){
-            this.isDone = isDone;
-            return this;
-        }
-
-        */
 
         public Builder withAirLine(AirLine airLine) {
             this.airLine = airLine;
@@ -221,6 +210,11 @@ public class Trip {
             this.costForEconomyClassSeat = costForEconomyClassSeat;
             return this;
 
+        }
+
+        public Builder withTotalIncomeFromTrip(int totalIncomeFromTrip){
+            this.totalIncomeFromTrip = totalIncomeFromTrip;
+            return  this;
         }
 
         public Trip build() {

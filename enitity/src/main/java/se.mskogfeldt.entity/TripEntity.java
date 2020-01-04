@@ -29,10 +29,11 @@ public class TripEntity {
     private int costForBusinessClassSeat;
     private int costForEconomyClassSeat;
 
+    private int totalIncomeForTrip;
+
 
     public TripEntity(Builder builder) {
         this.id = Objects.requireNonNull(builder.id);
-       // this.isDone = Objects.requireNonNull(builder.isDone);
 
         this.airLineEntity = Objects.requireNonNull(builder.airLineEntity);
         this.airplaneEntity = Objects.requireNonNull(builder.airplaneEntity);
@@ -50,6 +51,8 @@ public class TripEntity {
 
         this.costForBusinessClassSeat = Objects.requireNonNull(builder.costForBusinessClassSeat);
         this.costForEconomyClassSeat = Objects.requireNonNull(builder.costForEconomyClassSeat);
+
+        this.totalIncomeForTrip = builder.totalIncomeForTrip;
 
     }
 
@@ -102,13 +105,6 @@ public class TripEntity {
         this.bookedFoodEntity = bookedFoodEntity;
     }
 
-    public List<BusinessClassSeatEntity> getAvaibleBusinessClassSeatEntitys() {
-        return avalibleBusinessClassSeatEntitys;
-    }
-
-    public void setAvaibleBusinessClassSeatEntitys(List<BusinessClassSeatEntity> avalibleBusinessClassSeatEntitys) {
-        this.avalibleBusinessClassSeatEntitys = avalibleBusinessClassSeatEntitys;
-    }
 
     public Map<String, BusinessClassSeatEntity> getBookedBusinessClassSeatEntitys() {
         return bookedBusinessClassSeatEntitys;
@@ -158,6 +154,13 @@ public class TripEntity {
         this.avalibleBusinessClassSeatEntitys = avalibleBusinessClassSeatEntitys;
     }
 
+    public int getTotalIncomeForTrip() {
+        return totalIncomeForTrip;
+    }
+
+    public void setTotalIncomeForTrip(int totalIncomeForTrip) {
+        this.totalIncomeForTrip = totalIncomeForTrip;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -166,8 +169,6 @@ public class TripEntity {
     public static class Builder {
 
         private String id;
-
-       // private boolean isDone;
 
         private AirplaneEntity airplaneEntity;
         private AirLineEntity airLineEntity;
@@ -187,6 +188,8 @@ public class TripEntity {
 
         private int costForBusinessClassSeat;
         private int costForEconomyClassSeat;
+
+        private int totalIncomeForTrip;
 
         public Builder withId(String id){
             this.id = id;
@@ -255,6 +258,11 @@ public class TripEntity {
             this.costForEconomyClassSeat = costForEconomyClassSeat;
             return this;
 
+        }
+
+        public Builder withTotalIncomeForTrip(int totalIncomeForTrip){
+            this.totalIncomeForTrip = totalIncomeForTrip;
+            return this;
         }
 
         public TripEntity build() {

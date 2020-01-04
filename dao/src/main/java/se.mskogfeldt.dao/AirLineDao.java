@@ -1,20 +1,25 @@
 package se.mskogfeldt.dao;
 
 import se.mskogfeldt.entity.AirLineEntity;
+import se.mskogfeldt.entity.AirplaneEntity;
+import se.mskogfeldt.entity.BusinessClassSeatEntity;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
 public interface AirLineDao {
 
-    void create(AirLineEntity airLineEntity);
+    void create(String name, List<AirplaneEntity> airplaneEntities);
 
-    Collection<AirLineEntity> read(final String name);
+    Optional<List<AirplaneEntity>> read(String name);
 
-    Collection<AirLineEntity> readAll();
+    //Collection<AirLineEntity> read(final String name);
+   // Collection<AirLineEntity> readAll();
 
     void delete(String name);
 
-    void update(String name, AirLineEntity airLineEntity);
+    void update(String name, List<AirplaneEntity> airplaneEntities);
 
 
 }

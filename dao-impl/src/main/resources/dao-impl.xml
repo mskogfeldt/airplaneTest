@@ -4,11 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id ="airLineDao" class="se.mskogfeldt.dao.impl.AirLineDaoImpl"></bean>
-    <bean id ="customerDao" class="se.mskogfeldt.dao.impl.CustomerDaoImpl"></bean>
-    <bean id ="tripDao" class="se.mskogfeldt.dao.impl.TripDaoImpl"></bean>
 
-
-
+    <bean id ="tripDao" class="se.mskogfeldt.dao.impl.TripDaoImpl">
+    </bean>
 
 </beans>
+
